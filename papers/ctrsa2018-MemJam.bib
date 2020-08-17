@@ -1,0 +1,15 @@
+@InProceedings{moghimi2018memjam,
+author="Moghimi, Ahmad
+and Eisenbarth, Thomas
+and Sunar, Berk",
+editor="Smart, Nigel P.",
+title="MemJam: A False Dependency Attack Against Constant-Time Crypto Implementations in SGX",
+booktitle="Topics in Cryptology -- CT-RSA 2018",
+year="2018",
+publisher="Springer International Publishing",
+address="Cham",
+pages="21--44",
+abstract="Cache attacks exploit memory access patterns of cryptographic implementations. Constant-Time implementation techniques have become an indispensable tool in fighting cache timing attacks. These techniques engineer the memory accesses of cryptographic operations to follow a uniform key independent pattern. However, the constant-time behavior is dependent on the underlying architecture, which can be highly complex and often incorporates unpublished features. CacheBleed attack targets cache bank conflicts and thereby invalidates the assumption that microarchitectural side-channel adversaries can only observe memory with cache line granularity. In this work, we propose MemJam, a side-channel attack that exploits false dependency of memory read-after-write and provides a high quality intra cache level timing channel. As a proof of concept, we demonstrate the first key recovery attacks on a constant-time implementation of AES, and a SM4 implementation with cache protection in the current Intel Integrated Performance Primitives (Intel IPP) cryptographic library. Further, we demonstrate the first intra cache level timing attack on SGX by reproducing the AES key recovery results on an enclave that performs encryption using the aforementioned constant-time implementation of AES. Our results show that we can not only use this side channel to efficiently attack memory dependent cryptographic operations but also to bypass proposed protections. Compared to CacheBleed, which is limited to older processor generations, MemJam is the first intra cache level attack applicable to all major Intel processors including the latest generations that support the SGX extension.",
+isbn="978-3-319-76953-0"
+}
+

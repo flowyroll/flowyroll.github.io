@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Daniel Moghimi</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+
+
+  <!-- Custom styles for this template -->
+  <link href="/css/blog-post.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Daniel Moghimi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a href=https://twitter.com/danielmgmi><i class="navbar-brand fa fa-twitter" style="font-size:24px"></i></a>
+      <a href=https://www.linkedin.com/in/daniel-moghimi-75071a109/><i class="navbar-brand fa fa-linkedin" style="font-size:24px"></i></a>
+      <a href=http://github.com/danielmgmi><i class="navbar-brand fa fa-github" style="font-size:24px"></i></a>
+      <a href=https://scholar.google.com/citations?user=OXLo0LMAAAAJ&hl=en><i class="navbar-brand ai ai-google-scholar-square" style="font-size:24px"></i></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/publication.html">Publication</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/advisory.html">Security Advisory</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/video.html">Video</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/press.html">In the Press</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">A journey to antivirus escalation</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">Daniel Moghimi</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Posted on August 2, 2013 at 01:23 AM</p>
+
+      
+        <hr>
+        <blockquote>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">This post is recovered from my old blog</p>
+          </blockquote>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">Last few days I had some spare time to do some research about antivirus software security. I had this view in my mind that antivirus products are not always meant to improve people security. Beside they kill system performance, they also add a large attack surface to the system. For this purpose I got a list of antivirus products and chose Agnitum Outpost Internet security software randomly.</p>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">Agnitum Outpost internet security solution like other similar products is a kind of bundle consists of anti-malware, firewall, anti-spam and other interesting services to secure operating system against malicious activities. One of the key feature of such products is their self-protection which is responsible to block any tempering behavior of the antivirus product itself by some executable code (malware, viruses, worms and etc). Self-protection uses the operating system multi-layer architecture to achieve this purpose. It runs the protection codes at kernel layer by the help of services and drivers so the low integrity code would not able to tamper and disable the Security solution. There are various ways to attack self-protection, but one of the most critical ones is to abuse a privilege escalation vulnerability on operating system or other installed services to become the highest privileged user <i>(root</i> on unixis and <i>system</i> on windows<i>). </i>Here I tried two method to analyze Agnitum Outpost in this context lead to some vulnerabilities and finally full escalation of the system running Agnitum product on windows boxes.</p>
+          
+          <h3 dir="LTR" style="direction: ltr; unicode-bidi: embed;">Method One: Installed antivirus drivers</h3>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">After installation of the latest version of Agnitum Outpost internet security suite, I enumerated a list of drivers installed by this suite and their permissions by the help of <a href="http://www.nirsoft.net/utils/driverview.html">DriverView</a> and <a href="http://www.osronline.com/OsrDown.cfm/devicetree_v230.zip">DeviceTree</a> tools:</p>
+          
+          <div dir="ltr" align="left">
+          <table class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt;" border="1" cellspacing="0" cellpadding="0">
+          <tbody>
+          <tr>
+          <td style="width: 35.75pt; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="48">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>No</b></p>
+          </td>
+          <td style="width: 76.5pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="102">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>DriverName</b></p>
+          </td>
+          <td style="width: 81.0pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="108">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>DeviceName</b></p>
+          </td>
+          <td style="width: 94.5pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="126">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>Permission</b></p>
+          </td>
+          <td style="width: 163.05pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="217">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>Description</b></p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 35.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="48">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>1</b></p>
+          </td>
+          <td style="width: 76.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="102">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">afw</p>
+          </td>
+          <td style="width: 81.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="108">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">afwndis</p>
+          </td>
+          <td style="width: 94.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="126">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><span style="color: #00b050;">administrators</span></p>
+          </td>
+          <td style="width: 163.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="217">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Agnitum firewall ndis driver</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 35.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="48">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>2</b></p>
+          </td>
+          <td style="width: 76.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="102">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">afwcore</p>
+          </td>
+          <td style="width: 81.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="108">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">afw</p>
+          </td>
+          <td style="width: 94.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="126">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><span style="color: red;">Everyone</span></p>
+          </td>
+          <td style="width: 163.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="217">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Agnitum firewall core driver</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 35.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="48">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>3</b></p>
+          </td>
+          <td style="width: 76.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="102">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Sandbox</p>
+          </td>
+          <td style="width: 81.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="108">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Sandbox</p>
+          </td>
+          <td style="width: 94.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="126">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><span style="color: red;">Everyone</span></p>
+          </td>
+          <td style="width: 163.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="217">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Host protection component</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 35.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="48">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>4</b></p>
+          </td>
+          <td style="width: 76.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="102">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">VBCoreNT.0</p>
+          </td>
+          <td style="width: 81.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="108">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">VBCoreNT.0</p>
+          </td>
+          <td style="width: 94.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="126">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><span style="color: red;">Everyone</span></p>
+          </td>
+          <td style="width: 163.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="217">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">VirusBuster core driver</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 35.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="48">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>5</b></p>
+          </td>
+          <td style="width: 76.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="102">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">VBEngNT</p>
+          </td>
+          <td style="width: 81.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="108">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">vbengnt</p>
+          </td>
+          <td style="width: 94.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="126">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><span style="color: red;">Everyone</span></p>
+          </td>
+          <td style="width: 163.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="217">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">VirusBuster loader sys</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 35.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="48">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>6</b></p>
+          </td>
+          <td style="width: 76.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="102">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">VBFilt</p>
+          </td>
+          <td style="width: 81.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="108">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">…</p>
+          </td>
+          <td style="width: 94.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="126">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">…</p>
+          </td>
+          <td style="width: 163.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="217">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Host protection component</p>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          </div>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">The service installed the above drivers on the system and since most of them allow everyone to get a handle, it looks like a large attack surface. a<em>fw</em> and <em>afwcore</em> are related to Agnitum firewall technology used by many other security vendors. <em>VBCoreNT.0, VBEngNT </em>and <em>VBFilt</em> are part of the virus buster engine recently acquired by Agnitum. Sandbox Driver is some propriety driver responsible for self-protection service. I started screw-driving <em>sandbox.sys</em> module that seems more propriety and less proof.</p>
+          
+          <h4 dir="LTR" style="direction: ltr; unicode-bidi: embed;">Sandbox.sys</h4>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">The driver handle various ioctl requests by setting <i>IRP_MJ_DEVICE_CONTROL</i> to the function sub_55D20. This function is a wrapper around sub_A1F90 that pass ioctl code and parameters to various handler functions. There are 31 handler functions for various ioctl codes.</p>
+          
+          <h5><img src="/media/a_journey_1.png" alt="agnitum2" width="536" height="332" /></h5>
+          <p class="MsoNormal" dir="LTR" style="direction: ltr; unicode-bidi: embed;">In first block of every handler function the ioctl code is checked and in case of inequality, it passes the code and parameters to next handler for further processing:</p>
+          
+          <pre class="lang:asm decode:true">.text:0009C4B0                 mov     edi, edi
+          .text:0009C4B2                 push    ebp
+          .text:0009C4B3                 mov     ebp, esp
+          .text:0009C4B5                 sub     esp, 4Ch
+          .text:0009C4B8                 cmp     [ebp+arg_4], 800001E8h
+          .text:0009C4BF                 jz      short loc_9C4C9</pre>
+          <pre class="lang:asm decode:true">.text:0009FE70                 mov     edi, edi
+          .text:0009FE72                 push    ebp
+          .text:0009FE73                 mov     ebp, esp
+          .text:0009FE75                 sub     esp, 4Ch
+          .text:0009FE78                 cmp     [ebp+arg_4], 800002D0h
+          .text:0009FE7F                 jz      short loc_9FE89</pre>
+          <p style="text-align: justify;">These ioctl codes are used by module sand.ofp for different purposes. This file is a dynamic link library exists in the following path: <i>"[installation_path]\agnitum\Outpost Security Suite Pro\plugins_acs\sand.ofp"</i></p>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">The product use <em>ofp</em> extension for some sort custom plugin interface but they are like regular <em>DLL</em>s. Sub_1004DC40 in this module passes the mentioned ioctl code and some debugging strings exists to help us understand the usage of every ioctl code:</p>
+          
+          <pre class="lang:asm decode:true ">.text:1004DFB9                 cmp     edi, 800002D4h
+          .text:1004DFBF                 jnz     short loc_1004DFDF
+          .text:1004DFC1                 push    offset aGetProcessesIn ; "get processes info"</pre>
+          <pre class="lang:asm decode:true ">.text:1004DFDF                 cmp     edi, 80000320h
+          .text:1004DFE5                 jnz     short loc_1004E005
+          .text:1004DFE7                 push    offset aEnableLogging ; "enable logging"</pre>
+          So here is a list of ioctl codes and their functionalities based on the debugging strings:
+          <pre class="lang:asm decode:true">0x80000190: "query init info"
+          0x800001B8: "open monitor"
+          0x800001BC: "close monitor"
+          0x800001C0: "read monitor"
+          0x800001E0: "open learn"
+          0x800001E4: "close learn"
+          0x800001E8: "read learn"
+          0x800001EC: "enum learning events"
+          0x800001F0: * 
+          0x80000208: "set rules"
+          0x8000020C: "get rules"
+          0x80000210: "clear config"
+          0x80000230: "set config"
+          0x80000234: "get config"
+          0x80000238: "send answer"
+          0x80000258: "get scanner status"
+          0x8000025C: "flush scanner cache"
+          0x80000260: "reset scanner stat"
+          0x80000264: "unload plugin"
+          0x80000280: "set attr"
+          0x80000284: "get attr"
+          0x80000288: "erase attr"
+          0x8000028C: "clear cache"
+          0x800002D0: "get process info"
+          0x800002D4: "get processes info"
+          0x80000320: "enable logging"
+          0x80000324: "get internal stat"
+          0x80000348: "set media info"
+          0x8000034C: "get media info"
+          0x80004198: "query init info2"
+          0x80004214: "query rules"</pre>
+          <p style="text-align: justify;">As a result, we know that we have a large attack surface through this driver. After playing with some of them and analyzing IO buffers and sizes, I came across an interesting one namely <i>set rule </i>with control code 0x80000208.</p>
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; direction: ltr; unicode-bidi: embed;">It seems IO buffer sizes are properly checked, the input buffer size should be at least 0x14 bytes and the output buffer size should be at least 0x90 bytes.</p>
+          
+          <pre class="lang:asm decode:true">.text:000A1669                 mov     eax, [ebp+inSize]
+          .text:000A166C                 cmp     eax, 14h
+          .text:000A166F                 jnb     loc_A1735</pre>
+          <pre class="lang:asm decode:true ">.text:000A1736                 mov     ebx, [ebp+outsize]
+          .text:000A1739                 cmp     ebx, 90h
+          .text:000A173F                 jnb     loc_A1809</pre>
+          And then it allocates proper buffers for IO:
+          <pre class="lang:asm decode:true">.text:000A1827                 call    sub_92CF0 ; allocate pool by input size and copy input data
+          .text:000A182C                 push    1
+          .text:000A182E                 push    90h
+          .text:000A1833                 lea     ecx, [ebp+var_20]
+          .text:000A1836                 call    sub_1AB20; allocate pool by output size</pre>
+          And some magic bytes are checked in the input:
+          <pre class="lang:asm decode:true">.text:000A189C                 mov     ebx, [ebp+this]
+          .text:000A189F                 cmp     dword ptr [ebx], 1024h</pre>
+          <pre class="lang:asm decode:true">.text:000A18C3                 mov     eax, [ebx+4]
+          .text:000A18C6                 cmp     eax, 4Dh</pre>
+          <p style="text-align: justify;">After all of this validations, we reach to the actual call for set rule function at address 0xA18EF. Sub routine sub_A12C0 is responsible to set new rules for the antivirus. Rule data has some custom file format that is parsed by function sub_62A50 and then it set the rule by a call to function sub_9E0E0:</p>
+          
+          <pre class="lang:default decode:true">.text:000A12EF                 push    eax
+          .text:000A12F0                 mov     ecx, esi
+          .text:000A12F2                 mov     [ebp+var_10], 0
+          .text:000A12F9                 call    sub_62A50
+          .text:000A12FE                 test    al, al
+          .text:000A1300                 jz      short loc_A1322
+          .text:000A1302                 mov     ecx, esi
+          .text:000A1304                 call    sub_9E0E0</pre>
+          <p style="text-align: justify;">Skipping unimportant things, I reached to function sub_627B0 which is the start point of parsing rule data with a custom format. First it reads a four byte signature and check if it is 0x0000BEEB or not:</p>
+          
+          <pre class="lang:asm decode:true">.text:000627C7                 mov     eax, [esi]      ; read signature 4 byte
+          .text:000627C9                 mov     eax, [eax+10h]
+          .text:000627CC                 lea     ecx, [ebp+arg_0]
+          .text:000627CF                 push    ecx
+          .text:000627D0                 push    4
+          .text:000627D2                 lea     edx, [ebp+var_C]
+          .text:000627D5                 push    edx
+          .text:000627D6                 mov     ecx, esi
+          .text:000627D8                 mov     [ebp+arg_0], ebx
+          .text:000627DB                 call    eax
+          .text:000627DD                 test    al, al
+          .text:000627DF                 jz      short loc_627E7
+          .text:000627E1                 cmp     [ebp+arg_0], 4
+          .text:000627E5                 jz      short loc_627EA ; check sig
+          .text:000627E7 loc_627E7:                             
+          .text:000627E7                 mov     [esi+4], bl
+          .text:000627EA loc_627EA:             
+          .text:000627EA                 cmp     [ebp+var_C], 0BEEBh ; check sig</pre>
+          Then another 2 bytes flag is checked against value 0x1:
+          <pre class="lang:asm decode:true">.text:000627F3                 push    2
+          .text:000627F5                 lea     ecx, [ebp+var_8]
+          .text:000627F8                 push    ecx
+          .text:000627F9                 mov     ecx, esi        ; read 2byte next to the sig and check if 1
+          .text:000627FB                 call    fetchnbyte_10710
+          .text:00062800                 cmp     [ebp+var_8], 1</pre>
+          Then the function calls sub_510A0 twice which is responsible to parse some unknown block type. Function sub_510A0 check a one byte flag if 0x1:
+          <pre class="lang:asm decode:true">.text:000510D5                 push    1
+          .text:000510D7                 lea     edx, [ebp+arg_4+3]
+          .text:000510DA                 push    edx
+          .text:000510DB                 mov     ecx, esi
+          .text:000510DD                 mov     [ebp+arg_0], ebx
+          .text:000510E0                 call    eax
+          .text:000510E2                 test    al, al
+          .text:000510E4                 jz      short loc_510EC
+          .text:000510E6                 cmp     [ebp+arg_0], 1  ; check second flag from header</pre>
+          After that the function calls sub_50FE0 for parsing more values after initialization of some data structure:
+          <pre class="lang:asm decode:true ">.text:0005119C                 push    eax
+          .text:0005119D                 push    esi
+          .text:0005119E                 call    sub_50FE0</pre>
+          At first block of function sub_50FE0 a call to function read_UnicodeString_22ED0 is performed:
+          <pre class="lang:asm decode:true ">.text:00050FE8                 push    ebx
+          .text:00050FE9                 push    esi
+          .text:00050FEA                 mov     esi, [ebp+arg_4]
+          .text:00050FED                 push    edi
+          .text:00050FEE                 push    esi
+          .text:00050FEF                 push    eax
+          .text:00050FF0                 call    read_UnicodeString_22ED0
+          .text:00050FF5                 lea     ecx, [esi+0Ch]</pre>
+          <p style="text-align: justify;">I renamed this function to be more informative since it reads a Unicode string from the buffer and is used commonly through the parser couple of times. To summarize my findings until now, we need the following input buffer for this ioctl handler to reach read_UnicodeString_22ED0 function:</p>
+          
+          <div dir="ltr" align="left">
+          <pre class="lang:default highlight:0 decode:true ">24 10 00 00|4D 00 00 00|&lt;unused&gt;|&lt;unused&gt;|&lt;rule data size&gt;| 
+          EB BE 00 00|01 00|01|&lt;string length&gt;|&lt;string data ………………………………&gt;|</pre>
+          &nbsp;
+          
+          </div>
+          <h4 dir="LTR" style="direction: ltr; unicode-bidi: embed;">ISSUE #1: Pool memory overflow</h4>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">Sub routine read_UnicodeString_22EE0 read a 4 byte length value as length of the Unicode string and then allocates a memory based on this length and after that copies the Unicode data to this memory, here is the structure of this chunk:</p>
+          
+          <pre class="lang:default highlight:0 decode:true">LENGTH + DATA[LENGTH * 2]</pre>
+          This function calls sub_112C0 and reads 4 bytes length value:
+          <pre class="lang:asm decode:true ">.text:00022EDF                 push    eax
+          .text:00022EE0                 mov     ecx, ebx
+          .text:00022EE2                 mov     [ebp+var_4], 0
+          .text:00022EE9                 call    read_4byte_112C0</pre>
+          Then it passes the value to the function sub_1FCB0 as a kind of pool memory allocator for Unicode string:
+          <pre class="lang:default decode:true">.text:00022EF9                 mov     esi, [ebp+arg_4]
+          .text:00022EFC                 push    1
+          .text:00022EFE                 push    edi   ; len
+          .text:00022EFF                 mov     ecx, esi
+          .text:00022F01                 call    sub_1FCB0
+          .text:00022F06                 test    al, al</pre>
+          The vulnerable code path begins from here. There are some various improper checks lead to overflow. Function sub_1FCB0 does the following calculation for size of the memory:
+          <pre class="lang:default decode:true">.text:0001FD3F                 push    ebx
+          .text:0001FD40                 xor     ebx, ebx
+          .text:0001FD42                 mov     eax, edi; len
+          .text:0001FD44                 mov     edx, 2
+          .text:0001FD49                 mul     edx
+          .text:0001FD4B                 seto    bl
+          .text:0001FD4E                 neg     ebx
+          .text:0001FD50                 or      ebx, eax
+          .text:0001FD52                 jnz     short loc_1FD58 ; Invalid jump decision</pre>
+          It multiplies the length value in register edi by 2 and if an integer overflow occurs it set register ebx to 0xffffffff and then does an OR operation on 0xffffffff with result of the multiplication. And if the result is a non-zero value, the function jumps to allocate memory. Hence in case of a big length value, the program tries to allocate a memory of size 0xffffffff.
+          <pre class="lang:asm decode:true ">.text:0001FD58                 push    '90BS'          ; Tag
+          .text:0001FD5D                 push    ebx             ; NumberOfBytes
+          .text:0001FD5E                 push    0               ; PoolType
+          .text:0001FD60                 call    ds:ExAllocatePoolWithTag
+          .text:0001FD66                 test    eax, eax</pre>
+          <p style="text-align: justify;">As allocation of a memory with this size is impossible, ExAllocatePoolWithTag return null. But it seems the developer insists on having some previously reversed memory to be used in case of failure of ExAllocatePoolWithTag function. So it jumps to call function at address 0x16EB0 in purpose of returning some previously allocated memory:</p>
+          
+          <pre class="lang:asm decode:true">.text:0001FD73                 push    0
+          .text:0001FD75                 push    ebx
+          .text:0001FD76                 mov     ecx, offset stru_C0918
+          .text:0001FD7B                 call    GetFromPreviouslyReserved_16EB0
+          .text:0001FD80                 test    eax, eax</pre>
+          The second buggy point is in this function. The function doesn’t check the requested memory size properly.
+          <pre class="lang:asm decode:true">.text:00016EDC                 cmp     eax, 1000h
+          .text:00016EE1                 jnz     short loc_16EE6; BUGGY</pre>
+          By passing a large value (0xffffffff) to this function, we end up reaching the following code:
+          <pre class="lang:asm decode:true">.text:00016F0E                 mov     eax, [ebp+arg_0]
+          .text:00016F11                 push    eax
+          .text:00016F12                 lea     ecx, [esi+0A0h]
+          .text:00016F18                 call    sub_11140</pre>
+          Function sub_11140 returns the largest unused previously allocated memory (<i>but maybe not large enough</i><span style="font-family: Wingdings; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin; mso-char-type: symbol; mso-symbol-font-family: Wingdings;">J</span>).
+          
+          This reversed memory is allocated when the driver loads by a call to function sub_1DF60. And finally the largest memory this design has is 16f000h byte.
+          <pre class="lang:asm decode:true ">.text:0001DF9E                 push    16E360h; will be aligned to 4k -&gt; 16f000
+          .text:0001DFA3                 lea     ecx, [esi+0A0h]
+          .text:0001DFA9                 call    sub_1A520       ; [esi] = 0</pre>
+          <p style="text-align: justify;">To summarize, passing an overflowing length for Unicode data give us a memory with size of 0x16F000 bytes. The third and last problem occurs at copy operation of Unicode data to this memory. After have a pointer to memory of size 0x16F000, this is how function sub_22ED0 tries to copy Unicode data to this buffer:</p>
+          
+          <pre class="lang:asm decode:true">.text:00022F2D                 lea     ecx, [edi+edi] ; no overflow check
+          .text:00022F30                 push    ecx
+          .text:00022F31                 push    esi
+          .text:00022F32                 mov     ecx, ebx
+          .text:00022F34                 call    sub_10710</pre>
+          The function multiplies the length value (<span style="font-size: 9.0pt; line-height: 107%;">lea     ecx, [edi+edi])</span> without any checks.
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">Finally if we pass for example value of 0x80100000 as length of Unicode data we get a pointer to a memory of size 0x16F000 which was allocated before. And when we are going to copy data, it copies 0x80100000*2 = 0x200000 bytes. As a result copying 0x200000 byte to a 0x16f000 byte buffer cause pool memory overflow.</p>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;"><i>Note: This vulnerability also can be triggered by other ioctl control codes and functionality because this design flaw for reserved memory allocation is used through this binary.</i></p>
+          
+          <h4 dir="LTR" style="direction: ltr; unicode-bidi: embed;">Exploitation Method:</h4>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">Here [link removed] is the proof of concept code for this vulnerability. This vulnerability is theoretically an exploitable pool overflow and it is possible to overwrite exact size past the buffer. But the buffer is allocated when operating system load the sandbox driver. As predicting order of pool allocations at load time is not possible (with my knowledge), so it is hard to predict next buffer. One method to get code execution is to overflow a large size so many system objects and pointers would be overwritten and it lead to exploitable conditions but it would be so unreliable.</p>
+          
+          <h3 dir="LTR" style="direction: ltr; unicode-bidi: embed;">Method Two: Architecture Analysis</h3>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">This time I tried to better understand the product architecture The software uses a main service acs.exe and it is Agnitum client service and run as system user. All of the functionality of the internet security suite goes through this service and the service uses various components. Here is a map of this architecture:</p>
+          
+          <h5><img src="/media//a_journey_2.jpg" alt="agnit" width="630" height="378" /></h5>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unic
+          ode-bidi: embed;">There are three types of client for <em>acs.exe</em> service. <em>ie_bar</em> is an extension to the internet explorer browser that let the user to do some setup of the internet security suite content filtering when browsing.<em> op_shell</em> is a shell extension module to <em>explorer.exe</em> and <em>op_mon</em> is the main GUI interface for the product. All of these 3 components run by default user permission and communicate to the high privileged client service using the named pipe <em>acs_ipc_server</em>. At next level, <em>acs.exe</em> uses some modules and a plugin interface and communicate with the kernel drivers. With above design, the drivers that mentioned in previous part should be limited to acs.exe system process and there is no need for normal user to have access to these drivers.</p>
+          
+          <h4 dir="LTR" style="direction: ltr; unicode-bidi: embed;">acs_ipc_server</h4>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">As acs.exe service process runs as system user, exploitation of this process can lead to system level access. Such processes have some input vectors from user mode processes like registries, files, network protocols. I chose <em>acsipc_server</em> named pipe because all the functionalities of the product uses this interface for communication.</p>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">Agnitum client service (acs.exe) register a named pipe and allow communication through this named pipe. It is possible to get a handle to the named pipe through " \.pipeacsipc_server" path. Sub_ 4F7580 at <em>acs.exe</em> module is responsible for reading data from the mentioned named pipe. So when we are writing some data to this pipe, processing of the data start from this function. The function first read 0x28 byte as a header:</p>
+          
+          <pre class="lang:asm decode:true">.text:004F75B9                 push    28h             ; nNumberOfBytesToRead
+          .text:004F75BB                 mov     [ebp+var_40], esi
+          .text:004F75BE                 lea     edx, [ebp+Buffer]
+          .text:004F75C1                 mov     [ebp+var_50], eax
+          .text:004F75C4                 mov     eax, [ebx]
+          .text:004F75C6                 push    edx             ; lpBuffer
+          .text:004F75C7                 push    eax             ; hFile
+          .text:004F75C8                 mov     [ebp+NumberOfBytesRead], esi
+          .text:004F75CB                 call    ds:ReadFile</pre>
+          Then it fetches size of data from the header and calls function at address 0x421680 to read data:
+          <pre class="lang:asm decode:true">.text:004F760C                 push    edx             ; int
+          .text:004F760D                 lea     eax, [ebp+var_24]
+          .text:004F7610                 push    eax             ; int
+          .text:004F7611                 push    ecx             ; hFile
+          .text:004F7612                 call    ipc_read_msg_data_421680</pre>
+          Analysis of the header structure is a little bit annoying and I summarized this section. The function call a handler at the following code path:
+          <pre class="lang:asm decode:true">.text:004F77B2                 push    edx
+          .text:004F77B3                 mov     edx, [esi]
+          .text:004F77B5                 lea     ecx, [ebp+Buffer]
+          .text:004F77B8                 push    ecx
+          .text:004F77B9                 push    edx
+          .text:004F77BA                 mov     ecx, edi
+          .text:004F77BC                 call    eax</pre>
+          This dynamic call, call a handler function which passes the message to various interfaces. To reach this code, the following header structure is required:
+          <div dir="ltr" align="left">
+          <table class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt;" border="1" cellspacing="0" cellpadding="0">
+          <tbody>
+          <tr>
+          <td style="width: 62.75pt; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="84">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>Offset </b></p>
+          </td>
+          <td style="width: 99.0pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="132">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>Size</b></p>
+          </td>
+          <td style="width: 289.05pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="385">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center"><b>Description</b></p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 62.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="84">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x00</p>
+          </td>
+          <td style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="132">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x10byte</p>
+          </td>
+          <td style="width: 289.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="385">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Guid of the interface to handler this command.</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 62.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="84">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x10</p>
+          </td>
+          <td style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="132">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x4byte</p>
+          </td>
+          <td style="width: 289.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="385">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Command number</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 62.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="84">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x14</p>
+          </td>
+          <td style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="132">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x4byte</p>
+          </td>
+          <td style="width: 289.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="385">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Not used</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 62.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="84">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x18</p>
+          </td>
+          <td style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="132">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x4byte</p>
+          </td>
+          <td style="width: 289.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="385">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Data Length</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 62.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="84">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x1c</p>
+          </td>
+          <td style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="132">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x4byte</p>
+          </td>
+          <td style="width: 289.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="385">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Should be zero</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 62.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="84">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x20</p>
+          </td>
+          <td style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="132">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x4byte</p>
+          </td>
+          <td style="width: 289.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="385">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Should be zero</p>
+          </td>
+          </tr>
+          <tr>
+          <td style="width: 62.75pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="84">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x24</p>
+          </td>
+          <td style="width: 99.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="132">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">0x4byte</p>
+          </td>
+          <td style="width: 289.05pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;" valign="top" width="385">
+          <p class="MsoNormal" dir="LTR" style="margin-bottom: 0.0001pt; text-align: center; direction: ltr; unicode-bidi: embed;" align="center">Should be zero</p>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          </div>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;"><em>acs.exe</em> uses unique GUID'S to handle various plugins. It searches through the registered plugins by their unique GUID and passes the message to the proper plugin. From that point, the target plugin uses command numbers to decide which functionalities the message is targeting and parse the preceding data by this command number. Data length is the size of data that should be read as previously mentioned. I analyzed the GUID search code dynamically and made the following list of GUIDs and their interfaces:</p>
+          
+          <pre class="lang:default decode:true">0  C31E1F8C 4085EBCF DE788597 D8A239ED          netstat_ipc_handler
+          1  64789c27 48555feb 9b3ad7b9 963e3ad8          downloader.ofp
+          2  9becb64b 424ef2fd 6c07e4a0 c8ef8633          amw.ofp
+          3  c8ec9040 469364d8 3bc30b80 fdd932d6          hips.ofp (not work now)
+          4  a2f54d27 433b9a4f 9ebb3a8c 5ccf54e3          content.ofp        ie_bar
+          5  D48A445E 466E1597 327416BA 68CCDE15          common_handler
+          6  fd8e5dce 48cebed7 3ad892a6 6c4b8fef          learning_handler
+          7  8dad52e3 4121f991 ccec4893 79db5684          config_handler
+          8  c55830e6 4c8fff62 109a30ad b592c8ec          content.ofp
+          9  4800cf0c 44b0c677 a7203088 678eda10          monitor query
+          10 210538C1 4EA24453 C2606D82 51F98D54          protect_ipc_handler</pre>
+          There may be more of this interfaces. So there is a large attack surface processing various command by various components. Each of the above interfaces handle request by a handler function.
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">The handler for common functionality of the product (common_handler) is at the same module acs.exe at address 004F8650. This function uses a big switch case around command number values and chooses proper action based on the command. Here is the list of command number that common_handler supports:</p>
+          
+          <div dir="ltr" align="left">
+          <pre class="lang:default highlight:0 decode:true ">0 1  2 5 6 7 8 9 A B C D F 10 11 12 13 14 15 16 17 1A 1B 1C</pre>
+          I analyzed some of these commands and reached an interesting one, FWC_REGISTER_DLL with command number 0x17. passing this command number make common_handler to call routine sub_4FC4E0:
+          
+          </div>
+          <pre class="lang:asm decode:true">.text:004FAE19                 movzx   ecx, byte ptr [eax+10h]
+          .text:004FAE1D                 push    ecx
+          .text:004FAE1E                 lea     ecx, [eax+11h]
+          .text:004FAE21                 call    sub_4FC4E0</pre>
+          <p style="text-align: justify;">Function sub_4FC4E0 is responsible for registering a dll from path of installation of the product by using regsrv32.exe service. The function get path of acs.exe by a call to <i>getmodulenameascii_4144C0</i>:</p>
+          
+          <pre class="lang:asm decode:true ">.text:004FC593                 push    ebx             ; hModule
+          .text:004FC594                 lea     ecx, [ebp+var_38]
+          .text:004FC597                 call    getmodulenameascii_4144C0
+          .text:004FC59C                 mov     ecx, [eax]
+          .text:004FC59E                 mov     esi, ecx</pre>
+          Then it append name of a DLL as data to the path of executable by a call to the function at address 0x4142C0:
+          <pre class="lang:asm decode:true">.text:004FC5C1                 push    edi             ; Src
+          .text:004FC5C2                 push    eax             ; int
+          .text:004FC5C3                 call    concat_to_acs_path_4142C0
+          .text:004FC5C8                 push    0Ch             ; Dst</pre>
+          And finally the function uses CreateProcessA to register the dll with regsvr32.exe:
+          <pre class="lang:asm decode:true ">.text:004FC67A                 push    ebx             ; lpCurrentDirectory
+          .text:004FC67B                 push    ebx             ; lpEnvironment
+          .text:004FC67C                 push    ebx             ; dwCreationFlags
+          .text:004FC67D                 push    ebx             ; bInheritHandles
+          .text:004FC67E                 push    ebx             ; lpThreadAttributes
+          .text:004FC67F                 push    ebx             ; lpProcessAttributes
+          .text:004FC680                 push    eax             ; lpCommandLine
+          .text:004FC681                 push    ebx             ; lpApplicationName
+          .text:004FC682                 call    ds:CreateProcessA</pre>
+          The commandline of CreateProcessA would be like the following:
+          <pre class="lang:default highlight:0 decode:true">Regsvr32.exe /s C:\Program Files\agnitum\Outpost Security Suite Pro\somenameinput.dll</pre>
+          <h4>Issue #2</h4>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">Regsvr32.exe can be used to register a com DLL and it loads the DLL by using loadlibrary function. As the self-protection stop us from writing to the path of Agnitum outpost security suite, this seems safe way to register modules into a product, but the vulnerable part is the fact that it doesn’t check the input against path traversal or other bad characters. As a result passing proper protocol header and command values leave us to be able to run the following command:</p>
+          
+          <div dir="ltr" align="left">
+          <pre class="lang:default decode:true ">Regsvr32.exe /s C:\Program Files\agnitum\Outpost Security Suite Pro\..\..\..\evil.dll</pre>
+          Because CreateProcessA is called by a system privileged code, it would allow one to load evil.dll with system privilege.
+          <h4>Exploitation</h4>
+          </div>
+          <p class="MsoNormal" dir="LTR" style="text-align: justify; direction: ltr; unicode-bidi: embed;">Here [link removed] is the exploit code for this vulnerability. Because of the nature of the bug, the exploit works in all version of windows operating system. Exploitation of vulnerability doesn’t need a special method rather than passing the proper named pipe message to reach the vulnerable code. the proof of concept exploit code loads a DLL that spawn an interactive CMD shell with system privilege.</p>
+          
+          <h3 dir="LTR" style="direction: ltr; unicode-bidi: embed;">Final note:</h3>
+          <ol>
+             <li>Other ioctl handlers and command handlers are existed seems to be vulnerable, the vendor should properly limit access to interfaces.</li>
+             <li>There are many vectors not discussed here.</li>
+             <li>The discussed attack can be applied to other antiviruses and similar security products and trusting such products for security is questionable.</li>
+             <li>Architecture analysis in combination with code analysis would be more effective.</li>
+          </ol>
+        <hr>
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <div class="card my-4">
+          <h5 class="card-header">Posts</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <ul class="list-unstyled mb-0">
+                  <li><a href=/blog/subverting-without-eip.html>05/08/2014 - Subverting without Eip</a></li>
+                  <li><a href=/blog/pool-blade.html>03/19/2014 - Pool Blade</a></li>
+                  <li><a href=/blog/another-journey-to-antivirus-escalation.html>10/20/2013 - Another journey to antivirus escalation</a></li>
+                  <li><a href=/blog/a-journey-to-antivirus-escalation.html>08/02/2013 - A journey to antivirus escalation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <div class="card-body">
+            <a class="twitter-timeline" href="https://twitter.com/danielmgmi?ref_src=twsrc%5Etfw">Tweets by danielmgmi</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
