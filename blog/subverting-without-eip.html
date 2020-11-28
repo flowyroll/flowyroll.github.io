@@ -45,7 +45,7 @@
             <a class="nav-link" href="/pub.html">Publications</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="talk.html">Talks</a>
+            <a class="nav-link" href="/talk.html">Talks</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/advisory.html">Security Advisory</a>
@@ -89,14 +89,14 @@
       
         <hr>
         <blockquote>
-          <p style="text-align: justify;">This post is recovered from my old website/blog: mallocat.com</p>
-          <p style="text-align: justify;">Few months ago, I did some research about a vulnerability in Internet Explorer (IE) browser. I have always thought that it would be possible to exploit other primitives in web browsers, As a result I came up with this write-up which discusses a different exploitation method in Internet Explorer. As an example, I exploited (CVE-2013-2551 / MS13-037) by this innovative method. The issue is reported to Microsoft, and I postponed my disclosure.</p>
+          <p style="text-align: justify;">I have recovered this post from my old website/blog.: mallocat.com</p>
+          <p style="text-align: justify;">A few months ago, I researched a vulnerability in Internet Explorer (IE) browser. I have always thought that it would be possible to exploit other primitives in web browsers; thus, I came up with this write-up that discusses a different exploitation method in Internet Explorer. As an example, I exploited (CVE-2013-2551 / MS13-037) by this innovative method. I reported my findings to Microsoft and postponed my disclosure.</p>
           </blockquote>
           <h4><b>Abstract</b></h4>
-          <p style="text-align: justify;">Various protections have been added to the Windows operating system (OS) to defend against software exploitation. These protections are based on restricting the  attacker to gain control over the EIP register and to execute binary shellcode. The cat and mouse game between vendors to implement better protections and the hacker community to bypass them is a long (cliche) story. The offensive security community have tried to invent new methods to gain control over EIP by bypassing protections such as Stack cookie, Safe SEH, VTable guard, and to facilitate shellcode executing by bypassing protections such as ASLR, DEP. In this article, I am going to leave EIP alone and forget about running shellcode to gain code execution. Instead, we can exploit better primitives to even gain code execution without direct control over the EIP register.</p>
+          <p style="text-align: justify;">Various protections have been added to the Windows operating system (OS) to defend against software exploitation. These protections are based on restricting the attacker to gain control over the EIP register and to execute binary shellcode. The cat and mouse game between vendors to implement better protections and the hacker community to bypass them is a long (cliche) story. The offensive security community has tried to invent new methods to gain control over EIP by bypassing protections such as Stack cookie, Safe SEH, VTable guard, and facilitating shellcode execution by bypassing protections such as ASLR, DEP. In this article, I will leave EIP alone and forget about running shellcode to gain code execution. Instead, we can exploit better primitives to even gain code execution without direct control over the EIP register.</p>
           
           <h3 class="western">Introduction</h3>
-          <p class="western" style="margin-bottom: 0.11in; text-align: justify;" align="JUSTIFY">Applications have some features that are not enabled by default because of security considerations and testing, or there exists  undocumented behavior in the software that is unknown to normal users. Most of the time, when a user wants to access such features, a warning pops up indicating possible harms or instability in the system. One have to enable those features manually through some specific configurations. Here are some examples of such warnings in well-known client side applications:</p>
+          <p class="western" style="margin-bottom: 0.11in; text-align: justify;" align="JUSTIFY">Applications have some features that are not enabled by default because of security considerations and testing, or there exists undocumented behavior in the software that is unknown to regular users. Most of the time, when a user wants to access such features, a warning pops up, indicating possible harms or instability in the system. One has to enable those features manually through some specific configurations. Here are some examples of such warnings in well-known client-side applications:</p>
           
           <ul>
              <li>
@@ -114,12 +114,12 @@
           </ul>
           <ul>
              <li>
-          <p style="margin-bottom: 0.11in;">Microsoft Internet explorer ActiveX controls: (Is it possible to load harmful ActiveX controls and execute malicious code?)</p>
+          <p style="margin-bottom: 0.11in;">Microsoft Internet Explorer ActiveX controls: (Is it possible to load harmful ActiveX controls and execute malicious code?)</p>
           
           <h5><img src="/media/subverting_3.png" alt="111" /></h5>
           </li>
           </ul>
-          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">Further some developer features exist that would not throw  warning, but they are not accessible in the default configuration. For example:</p>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">Further, some developer features exist that would not throw a warning, but they are not accessible in the default configuration. For example:</p>
           
           <ul>
              <li>
@@ -129,10 +129,10 @@
           <p style="margin-bottom: 0.11in;" align="JUSTIFY">Google chrome Extension Javascript API</p>
           </li>
           </ul>
-          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">The generic idea is to patch such restrictions in the memory with the help of  a memory corruption vulnerability. This would let attackers perform harmful things and steal sensitive information.</p>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">The overall idea is to modify such restrictions in the memory with a memory corruption vulnerability. This modification would let attackers perform harmful things and steal sensitive information.</p>
           
           <h3 class="western">ActiveX</h3>
-          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">Internet explorer does not support the default plugin interface implemented by other browsers, and it is not possible to enumerate supported plugins by the Javascript object <i>navigator.plugin:</i></p>
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">Internet Explorer does not support the default plugin interface implemented by other browsers, and it is not possible to enumerate supported plugins by the Javascript object <i>navigator.plugin:</i></p>
           
           <table width="602" cellspacing="0" cellpadding="7"><colgroup> <col width="586" /> </colgroup>
           <tbody>
@@ -144,7 +144,7 @@
           </tr>
           </tbody>
           </table>
-          <p class="western" style="margin-bottom: 0.11in; text-align: justify;" align="JUSTIFY">IE supports the old ActiveX COM interface to extend browser features. ActiveX has introduced many security issue in earlier versions of IE, but nowadays it is only possible to run some trusted ActiveX through the JavaScript interface. As a result, the browser warns the user if a web page tries to load Untrusted ActiveX controls. A list of trusted ActiveX controls that run without permission can be obtained in Manage Add-ons window:</p>
+          <p class="western" style="margin-bottom: 0.11in; text-align: justify;" align="JUSTIFY">IE supports the old ActiveX COM interface to extend browser features. ActiveX has introduced many security issues in earlier versions of IE, but nowadays, it is only possible to run some trusted ActiveX through the JavaScript interface. As a result, the browser warns the user if a web page tries to load Untrusted ActiveX controls. A list of trusted ActiveX controls that run without permission can be obtained in the Manage Add-ons window:</p>
           
           <h5><img src="/media/subverting_4.png" alt="111" width="550px" height="400px" /></h5>
           <p class="western" style="margin-bottom: 0.11in;">For better understating of the ActiveX architecture and its security, you can review the Black hat 2008 paper from<i> </i><span style="color: #0000ff;"><span lang="zxx"><u><a href="http://www.blackhat.com/presentations/bh-usa-08/Sotirov_Dowd/bh08-sotirov-dowd.pdf"><i>Alexander Sotirov and Mark Dowd</i></a></u></span></span> talk.</p>
@@ -196,22 +196,22 @@
           .text:10131F7D mov edi, eax
           .text:10131F7F test byte ptr [edi+1E4h], 8
           .text:10131F86 jz short loc_10131FC5</pre>
-          And if we could have control on this value, it would be possible to force the function to return true without any further security check:
+          And if we could have control over this value, it would be possible to force the function to return true without any further security check:
           <pre class="lang:asm decode:true ">.text:10131FC5 xor eax, eax
           .text:10131FC7 inc eax
           .text:10131FC8 jmp short loc_10131FC0</pre>
           <h3>Attack Demonstration: CVE-2013-2551</h3>
-          To Sum it up untill here, if we are able to null the one-byte value at offset +1E4 of <i>ScriptEngine object</i> before reaching this code by a 1-byte write primitive gained from some vulnerability, we can load untrusted ActiveX Controls without restrictions. This is powerful enough to execute malicious code without challenging memory protections.
-          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY"><span style="background-position: initial initial; background-repeat: initial initial;">CVE-2013-2551</span> is an integer overflow vulnerability in VML rendering engine demonstrated by Nicolas July of VUPEN at Pwn2Own 2013 hacking contest. The vulnerability can be triggered by the following code:</p>
+          To Sum it up until here, if we can null the one-byte value at offset +1E4 of <i>ScriptEngine object</i> before reaching this code by a 1-byte write primitive gained from some vulnerability, we can load untrusted ActiveX Controls without restrictions. This technique is powerful enough to execute malicious code without challenging memory protections.
+          <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY"><span style="background-position: initial initial; background-repeat: initial initial;">CVE-2013-2551</span> is an integer overflow vulnerability in the VML rendering engine demonstrated by Nicolas July of VUPEN at the Pwn2Own 2013 hacking contest. The following code can trigger the vulnerability:</p>
           
           <pre class="lang:java decode:true ">&lt;v:oval&gt;&lt;v:stroke id=x1 dashstyle="0 1"/&gt;&lt;/v:oval&gt;
           &lt;script&gt;
           x1 = document.getElementById("x1");
           x1.dashstyle.array.length = -1;
           &lt;/script&gt;</pre>
-          This doesn’t crash the browser but the negative value will be downsized to 0xffff and would be set as length of some array structure. So after that it is possible to write past the array buffer by the help of item property of a dashstyle array:
+          This doesn’t crash the browser, but the negative value will be downsized to 0xffff and set as the length of some array structure. So after that, it is possible to write past the array buffer with the help of the item property of a dashstyle array:
           <pre class="lang:js decode:true ">x1.dashstyle.array.item(0xffff) = 0x41414141;</pre>
-          And this write4 condition is enough to exploit ScriptEngine object. For this purpose we should position this Array object and ScriptEngine object in the proper memory location. The ScriptEngine object constructor can be found at <i>CJScript9ClassFactory::AllocateEngine</i>:
+          And this write4 condition is enough to exploit the ScriptEngine object. For this purpose, we should position this Array object and ScriptEngine object in the proper memory location. The ScriptEngine object constructor can be found at <i>CJScript9ClassFactory::AllocateEngine</i>:
           <pre class="lang:asm decode:true ">.text:10086417 push eax
           .text:10086418 mov eax, [ebp+arg_0]
           .text:1008641B push esi
@@ -230,7 +230,7 @@
           .text:10001353 mov ebp, esp
           .text:10001355 push [ebp+Size] ; Size
           .text:10001358 call ds:__imp__malloc</pre>
-          So this object is allocated by CRT_HEAP. By loading a new page a new script context can be created so a new ScriptEngine instance. But we cannot find address of current ScriptEngine object without any memory leakage. Although the mentioned vulnerability allow memory leakage as demonstrated but it is possible to exploit this vulnerability in a simpler way.
+          So this object is allocated by CRT_HEAP. By loading a new page, a new script context can be created so a new ScriptEngine instance. But we cannot find the address of the current ScriptEngine object without any memory leakage. Although the mentioned vulnerability allows memory leakage, as demonstrated, it is possible to exploit it more directly.
           <p class="western" style="margin-bottom: 0.11in;" align="JUSTIFY">When we reset the size of DashStyle array length the<i> vgx!COALineDashStyleArray::put_length</i> function call <i>MsoIAppendPx</i> and this function calculate and allocate the new memory for the array in the following chunk of code:</p>
           
           <pre class="lang:asm decode:true ">.text:10075F0F shr ecx, 10h
@@ -268,12 +268,12 @@
           
           <h3 class="western">Summary</h3>
           <ol>
-             <li class="western">This method is more reliable than classical code execution since it does not depend on on Operating system version and protections. By only patching the proper value in memory, one can get a reliable code execution which is not based on binary shellcode.</li>
+             <li class="western">This method is more reliable than classical code execution since it does not depend on the Operating system version and protections. By only patching the proper value in memory, one can get a reliable code execution which is not based on binary shellcode.</li>
              <li>
-          <p style="margin-bottom: 0.11in;">Less suspicious than other methods, and intrusion prevention systems which are based on shellcode detection can not detect it.</p>
+          <p style="margin-bottom: 0.11in;">Less suspicious than other methods, and intrusion prevention systems based on shellcode detection can not detect it.</p>
           </li>
              <li>
-          <p style="margin-bottom: 0.11in;">It requires the proper bug to give write condition, and/or we should leak the memory to find the  favorite script object to patch.</p>
+          <p style="margin-bottom: 0.11in;">It requires the proper bug to give the write condition, and we should leak the memory to find the favorite script object to patch.</p>
           </li>
              <li>
           <p style="margin-bottom: 0.11in;">It may be possible to implement similar methods on the other mentioned primitives.</p>
