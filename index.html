@@ -70,39 +70,67 @@
     <div class="row">
 
       <!-- Post Content Column -->
-      <div class="col-lg-8">
+      <div class="col-lg-9">
 
         <!-- Title -->
-        <h1 class="mt-4">About Me</h1>
-
+        <h1 class="mt-4">About Me <a href=media/profile.jpg  style="float:right"><img class="mx-auto" src="media/profile_zoom.png" width="135"/></a></h1>
+        
 
         <hr>
 
         <!-- Preview Image -->
         <!-- <img class="img-fluid rounded" src="http://placehold.it/600x300" alt=""> -->
         <div class="span4">
-          <img class="mx-auto" style="float:right" src="media/profile.jpg" width="290"/>
+          
           <!-- <div class="content-heading"><h3>Experience &nbsp </h3></div> -->
           <!-- <p style="clear:both">Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p> -->
           <p class="lead">
-            I am researching computer security; I have presented some of my work on microarchitectural security, side-channel cryptanalysis, and hardwear-based trusted computing such as TPM and SGX in academic conferences (Usenix Security, ACM CCS, IEEE S&P, IACR CHES, ...) and industry hackercons (BlackHat USA, ToorCon, hardwear.io, RSA, ...). Starting in 2021, I will join <a href=https://cse.ucsd.edu/>UCSD CSE</a> as a postdoctoral scholar under the mentorship of <a href=https://cseweb.ucsd.edu/~nadiah/>Nadia Heninger</a> and <a href=https://cseweb.ucsd.edu/~dstefan/>Deian Stefan</a>.
-          </p>
-          <p class="lead">
+            I am a postdoctoral scholar &mdash; <a href=https://cse.ucsd.edu/about/news/cse-launches-unique-postdoctoral-fellowship-program>UCSD CSE fellow</a> working with <a href=https://cseweb.ucsd.edu/~nadiah/>Nadia Heninger</a> and <a href=https://cseweb.ucsd.edu/~dstefan/>Deian Stefan</a>. 
+            <!---->
             I received my PhD in ECE and MSc in CS from WPI under the supervision of <a href=https://users.wpi.edu/~sunar//index.html>Berk Sunar</a> and <a href=http://users.wpi.edu/~teisenbarth/>Thomas Eisenbarth</a>.      
-            During my graduate studies, I also had the privilege to temporarly (as paid intern) work with <a href=https://talosintelligence.com/>Cisco Talos</a> and <a href=https://www.qualcomm.com/company/product-security>Qualcomm product security initiatve (QPSI)</a>. You can find a list of my talks <a href="/talk.html">here</a>, the recording for some of them <a href="/video.html">here</a>, and my publications <a href=/pub.html>here</a> or at my <a href=https://scholar.google.com/citations?user=OXLo0LMAAAAJ&hl=en>Google scholar profile</a>.
+            I research computer security and privacy; microarchitectural security, side channels and cryptanalysis, and hardware-based and architectural security primitives.
+            <!---->
+            During my graduate studies, I have also interned at <a href=https://talosintelligence.com/>Cisco Talos</a> working on fuzz testing for automated vulnerability discovery and <a href=https://www.qualcomm.com/company/product-security>Qualcomm product security initiative (QPSI)</a> working on system-level security of PCIe controllers.
           </p>
+          <h4>Selected Publications:</h4>
+          <ol>
+            <li><strong>D Moghimi</strong>, J Van Bulck, N Heninger, F Piessens, B Sunar. <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat">"CopyCat: Controlled Instruction-Level Attacks on Enclaves"</a> 
+              The 29th USENIX Security Symposium (SEC 2020).
+            </li>
+            <li><strong>D Moghimi</strong>, M Lipp, B Sunar, M Schwarz. <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-medusa">"Medusa: Microarchitectural Data Leakage via Automated Attack Synthesis"</a>
+              The 29th USENIX Security Symposium (SEC 2020).
+            </li>            
+            <li>J Van Bulck, <strong>D Moghimi</strong>, M Schwarz, M Lipp, M Minkin, D Genkin, Y Yarom, B Sunar, D Gruss, F Piessens.<a href="https://lviattack.eu/lvi.pdf">"LVI: Hijacking Transient Execution through Microarchitectural Load Value Injection"</a>            
+              The 41st IEEE Symposium on Security and Privacy (S&P 2020).
+            </li>
+            <li><strong>D Moghimi</strong>, B Sunar, T Eisenbarth, N Heninger. <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-tpm">"TPM-Fail: TPM meets Timing and Lattice Attacks"</a> 
+              The 29th USENIX Security Symposium (SEC 2020).
+            </li>
+            <li>M Schwarz, M Lipp, <strong>D Moghimi</strong>, J Van Bulck, J Stecklina, T Prescher, D Gruss. <a href="https://dl.acm.org/doi/10.1145/3319535.3354252">"ZombieLoad: Cross-Privilege-Boundary Data Sampling"</a>
+              The 26th ACM Conference on Computer and Communications Security (CCS 2019).              
+            </li>                     
+            <li><strong>A Moghimi</strong>, G Irazoqui, T Eisenbarth. 
+              <a href=https://link.springer.com/chapter/10.1007/978-3-319-66787-4_4>"CacheZoom: How SGX Amplifies The Power of Cache Attacks"</a> 
+              International Conference on Cryptographic Hardware and Embedded Systems (CHES 2017).              
+            </li>
+          </ol>
           <p class="lead">
+          For a full list of my academic publications, check <a href=/pub.html>this</a> out.           
+          </p>
+          <!-- <p class="lead">
             Before graduate school, I worked several freelance/consultancy gigs as a software engineer, web developer, and computer security professional. 
             I also wrote some technical blogs <a href=/blog.html>here</a> on software security, particularly data-only exploitation and antivirus software vulnerabilities.
-          </p>
+          </p> -->
         </div>
 
         <hr>
 
-        <h5>News:</h5>
+        <h4>News:</h4>
        
 
         <dl class="row">                    
+          <dt class="col-sm-2">03/01/2021</dt><dd class="col-sm-10">Swivel got accepted to Usenix Security 2021.</dt> 
+          <dt class="col-sm-2">01/04/2021</dt><dd class="col-sm-10">joined <a href=https://cse.ucsd.edu/>UCSD CSE</a> as a Postdoctoral Scholar.</dt> 
           <dt class="col-sm-2">12/04/2020</dt><dd class="col-sm-10">passed my PhD defense. <a href=slides/wpi2020-moghimi-phddefense.pdf>Here</a> are the slides for my presentation.</dt> 
           <dt class="col-sm-2">10/01/2020</dt><dd class="col-sm-10">presented <a href=https://www.youtube.com/watch?v=BpocgiNuJKY>JackHammer</a> with Thore and Zane at <a href=https://hardwear.io/archives/netherlands-2020/>hardwear.io Netherlands 2020</a>.</dt>
           <dt class="col-sm-2">09/14/2020</dt><dd class="col-sm-10">joined Qualcomm Product Security as an Intern for 13 weeks.</dt>
@@ -110,7 +138,7 @@
           <dt class="col-sm-2">09/04/2020</dt><dd class="col-sm-10">passed my PhD area exam. <a href=slides/wpi2020-moghimi-areaexam.pdf>Here</a> are the slides for my presentation.</dt> 
           <dt class="col-sm-2">08/24/2020</dt><dd class="col-sm-10">served on the program committe for <a href="http://ashesworkshop.org/committees-2020">ASHES 2020</a>.</dt> 
           <dt class="col-sm-2">08/16/2020</dt><dd class="col-sm-10">presented TPM-Fail at <a href="https://crypto.iacr.org/2020/wac.php">Workshop on Attacks in Cryptography 2020</a>.</dt> 
-          <dt class="col-sm-2">08/14/2020</dt><dd class="col-sm-10">presented three papers at Usenix Security 2020!!: <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat">CopyCat</a>, <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-medusa">Medusa</a> and <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-tpm">TPM-Fail</a>.</dt> 
+          <dt class="col-sm-2">08/14/2020</dt><dd class="col-sm-10">presented three papers, <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat">CopyCat</a>, <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-medusa">Medusa</a> and <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-tpm">TPM-Fail</a> at Usenix Security 2020.</dt> 
           <dt class="col-sm-2">08/06/2020</dt><dd class="col-sm-10">gave my first Black Hat talk on <a href=https://www.blackhat.com/us-20/briefings/schedule/#remote-timing-attacks-on-tpms-aka-tpm-fail-20848>TPM-Fail</a>.</dt> 
           <dt class="col-sm-2">06/22/2020</dt><dd class="col-sm-10">CopyCat got accepted to <a href=https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat>Usenix Security 2020</a>.</dt> 
           <dt class="col-sm-2">04/30/2020</dt><dd class="col-sm-10">presented <a href>Breaking Deployed Crypto</a> and <a href>LVI</a> (with Daniel and Jo at <a href=https://hardwear.io/archives/virtual-con-2020/>hardwear.io 2020</a>.</dt>
@@ -147,7 +175,7 @@
       </div>
 
       <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
+      <div class="col-md-3">
 
 
 
