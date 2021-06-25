@@ -11,8 +11,10 @@
   <title>Daniel Moghimi</title>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
 
@@ -29,34 +31,38 @@
       <a class="navbar-brand" href="#">Daniel Moghimi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
       <a href=mailto:danielm@ucsd.edu><i class="navbar-brand fa fa-envelope" style="font-size:24px"></i></a>
       <a href=https://twitter.com/danielmgmi><i class="navbar-brand fa fa-twitter" style="font-size:24px"></i></a>
-      <a href=https://www.linkedin.com/in/danielmgmi/><i class="navbar-brand fa fa-linkedin" style="font-size:24px"></i></a>
+      <a href=https://www.linkedin.com/in/danielmgmi /><i class="navbar-brand fa fa-linkedin"
+        style="font-size:24px"></i></a>
       <a href=http://github.com/danielmgmi><i class="navbar-brand fa fa-github" style="font-size:24px"></i></a>
-      <a href=https://scholar.google.com/citations?user=OXLo0LMAAAAJ&hl=en><i class="navbar-brand ai ai-google-scholar-square" style="font-size:24px"></i></a>
+      <a href=https://scholar.google.com/citations?user=OXLo0LMAAAAJ&hl=en><i
+          class="navbar-brand ai ai-google-scholar-square" style="font-size:24px"></i></a>
+      <a href=https://www.youtube.com/playlist?list=PLdqUUPqbL3gRFOP5kUQHO4cPR5mBOj4XM&hl=en><i
+          class="navbar-brand fa fa-youtube" style="font-size:24px"></i></a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ol class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/index.html">Home</a>
+            <a class="nav-link" href="">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/pub.html">Publications</a>
+          <li class="nav-item  active">
+            <a class="nav-link" href="#service">Service</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/talk.html">Talks</a>
+          <li class="nav-item  active">
+            <a class="nav-link" href="#pub">Publications</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/advisory.html">Security Advisory</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/blog.html">Blog</a>         
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="video.html">Video</a>
-          </li>
-        </ul>
+          <li class="nav-item  active">
+            <a class="nav-link" href="#talks">Talks</a>
+          </li>          
+          <li class="nav-item  active">
+            <a class="nav-link" href="#advisory">CVEs & Security Advisory</a>
+          </li>          
+        </ol>
       </div>
     </div>
   </nav>
@@ -64,144 +70,412 @@
   <!-- Page Content -->
   <div class="container">
 
-    <div class="row">
+    <h3 class="mt-4">About Me</h3>
 
-      <!-- Post Content Column -->
-      <div class="col-lg-9">
+    <!-- <div class="span4"> -->
+    <div id=home>
+      <p class="lead">
+        I am a postdoctoral scholar &mdash; <a
+          href=https://cse.ucsd.edu/about/news/cse-launches-unique-postdoctoral-fellowship-program>UCSD CSE fellow</a>
+        working with <a href=https://cseweb.ucsd.edu/~nadiah />Nadia Heninger</a> and <a
+          href=https://cseweb.ucsd.edu/~dstefan />Deian Stefan</a>.
+        <!---->
+        I received my PhD in ECE and MSc in CS from <a href=http://wpi.edu />WPI</a> under the supervision of <a
+          href=https://users.wpi.edu/~sunar//index.html>Berk Sunar</a> and <a
+          href=http://users.wpi.edu/~teisenbarth />Thomas Eisenbarth</a>.
+        <!---->
+        I work on computer security and privacy;
+        microarchitectural security,
+        side channels and cryptanalysis, and
+        architectural security primitives.
+        <!---->
+        I have also interned at <a href=https://talosintelligence.com />Cisco Talos</a> working on fuzz testing for
+        automated vulnerability discovery and <a href=https://www.qualcomm.com/company/product-security>Qualcomm product
+          security initiative (QPSI)</a> working on system-level security of PCIe controllers.
+      </p>
+      <h5>Contact Information: <div class="float-sm-right"><a href=media/profile.jpg><img class="mx-auto rounded-circle"
+              src="media/profile_zoom.png"
+              width="145" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      </h5>
+      <ul class="lead">
+        <li><i class="fa fa-envelope"></i>&nbsp; Email: <a href="mailto:danielm@ucsd.edu">danielm@ucsd.edu</a> </li>
+        <li><i class="fa fa-twitter"></i>&nbsp; Twitter: <a href="https://twitter.com/danielmgmi">@danielmgmi</a></li>
+        <li><i class="fa fa-linkedin"></i>&nbsp; Linkedin: <a
+            href="https://www.linkedin.com/in/danielmgmi/">danielmgmi</a></li>
+      </ul>
+      </br>
 
-        <!-- Title -->
-        <h1 class="mt-4">About Me</h1>
-        
+      <p>
+        I maintain a list of old blog posts on software and windows kernel exploitation at <a href=/blog.html>here</a>.
+      </p>
+    </div>
+    <div id=service>
+      <hr>
+      <h3>Professional Service</h3>
+      <ul class="lead">
+        <li><strong>Organizer: </strong>Workshop on Attacks on Cryptography (WAC 4)</li>
+        <li><strong>Program Committe:</strong> ACM ASHES 2020, IAW-IACR SPACE 2021, ACM ASHES 2021, IACR TCHES 2022,
+          Usenix Security 2022</li>
+        <li><strong>Journal/External Reviewer:</strong> IFIP/IEEE VLSI-SoC 2017, IACR Asiacrypt 2017, IACR TCHES 2018,
+          IEEE TIFS 2018, IACR Kangacrypt 2018, DATE 2019, IJIS 2019, IACR Eurocrypt 2020, ACM JETC 2020, IEEE TIFS
+          2020, ACM DTRAP 2020, IEEE TDSC 2020, ACM CCS 2021, ACM DTRAP 2021, ACM CSUR 2021</li>
+        <li><strong>Shadow Program Committe:</strong> IEEE S&P 2017 and 2019</li>
+      </ul>
+    </div>
 
-        <hr>
+    <div id=pub>
+      <hr>
+      <h3>Publications</h3>
+      <h5>Refereed Papers</h5>
+      <ol class="lead">
+        <li>S Narayan, C Disselkoen, <strong>D Moghimi</strong>, S Cauligi, E Johnson, Z Gang, A Vahldiek-Oberwagner,
+          R Sahita, H Shacham, D Tullsen, D Stefan. <a
+            href="https://www.usenix.org/conference/usenixsecurity21/presentation/narayan">"Swivel: Hardening
+            WebAssembly against Spectre"</a> 
+          The 30th USENIX Security Symposium (SEC 2021).
+          <small><a href="https://arxiv.org/abs/2102.12730">&nbsp;[arXiv]</a></small>
+          <small><a href="papers/usenixsec21-Swivel.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/usenixsec21-Swivel.bib">&nbsp;[Cite]</a></small>
+        </li>
+        <li><strong>D Moghimi</strong>, J Van Bulck, N Heninger, F Piessens, B Sunar. <a
+            href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat">"CopyCat:
+            Controlled Instruction-Level Attacks on Enclaves"</a> 
+          The 29th USENIX Security Symposium (SEC 2020).
+          <small><a href="papers/usenixsec20-CopyCat.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/usenixsec20-CopyCat.bib">&nbsp;[Cite]</a></small>
+          <small><a href="slides/sec2020-copycat.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://www.youtube.com/watch?v=MXbWsxdVg-o">&nbsp;[Video]</a></small>
+        </li>
+        <li><strong>D Moghimi</strong>, M Lipp, B Sunar, M Schwarz. <a
+            href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-medusa">"Medusa:
+            Microarchitectural Data Leakage via Automated Attack Synthesis"</a>
+          The 29th USENIX Security Symposium (SEC 2020).
+          <small><a href="papers/usenixsec20-Medusa.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/usenixsec20-Medusa.bib">&nbsp;[Cite]</a></small>
+          <small><a href="slides/sec2020-medusa.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://www.youtube.com/watch?v=57kqg70OxFM">&nbsp;[Video]</a></small>
+        </li>
+        <li>Z Weissman, T Tiemann, <strong>D Moghimi</strong>, E Custodio, T Eisenbarth, B Sunar. <a
+            href="https://arxiv.org/abs/1912.11523">"JackHammer: Efficient Rowhammer on Heterogeneous FPGA-CPU
+            Platforms"</a> 
+          IACR Transactions on Cryptographic Hardware and Embedded Systems (TCHES 2020).
+          <small><a href="papers/tches2020-jackhammer.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/tches2020-jackhammer.bib">&nbsp;[Cite]</a></small>
+          &nbsp;&nbsp;<small></br><b>Press Coverage</b>:
+            <a
+              href="https://www.zdnet.com/article/fpga-cards-can-be-abused-for-faster-and-more-reliable-rowhammer-attacks/">&nbsp;[ZDNet]</a>
+            <a href="https://www.tomshardware.com/news/jackhammer-attack-security-fpga-cpu-rowhammer">&nbsp;[tom's
+              Hardware]</a>
+          </small>
+        </li>
+        <li>J Van Bulck, <strong>D Moghimi</strong>, M Schwarz, M Lipp, M Minkin, D Genkin, Y Yarom, B Sunar, D Gruss,
+          F Piessens.<a href="https://lviattack.eu/lvi.pdf">"LVI: Hijacking Transient Execution through
+            Microarchitectural Load Value Injection"</a>
+          The 41st IEEE Symposium on Security and Privacy (S&P 2020).
+          <small><a href="papers/ieeesp20-lvi.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/ieeesp20-lvi.bib">&nbsp;[Cite]</a></small>
+          &nbsp;&nbsp;<small></br><b>Press Coverage</b>:
+            <a
+              href="https://www.darkreading.com/vulnerabilities---threats/researchers-develop-new-side-channel-attacks-on-intel-cpus/d/d-id/1337287">&nbsp;[Dark
+              Reading]</a>
+            <a href="https://www.theregister.co.uk/2020/03/10/lvi_intel_cpu_attack/">&nbsp;[The Register]</a>
+            <a href="https://www.zdnet.com/article/intel-cpus-vulnerable-to-new-lvi-attacks/">&nbsp;[ZDNet]</a>
+            <a href="https://www.tomshardware.com/news/load-value-injection-vulnerability-found-in-intel-chips">&nbsp;[tom's
+              Hardware]</a>
+          </small>
+        </li>
+        <li><strong>D Moghimi</strong>, B Sunar, T Eisenbarth, N Heninger. <a
+            href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-tpm">"TPM-Fail: TPM meets
+            Timing and Lattice Attacks"</a> 
+          The 29th USENIX Security Symposium (SEC 2020).
+          <small><a href="papers/usenixsec20-TPMFail.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/usenixsec20-TPMFail.bib">&nbsp;[Cite]</a></small>
+          <small><a href="slides/sec2020-tpmfail.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://www.youtube.com/watch?v=96w8VWSFERc">&nbsp;[Video]</a></small>
+          &nbsp;&nbsp;<small></br><b>Press Coverage</b>:
+            <a
+              href="https://www.darkreading.com/application-security/tpm-fail-what-it-means-and-what-to-do-about-it/a/d-id/1336392">&nbsp;[Dark
+              Reading]</a>
+            <a href="https://thehackernews.com/2019/11/tpm-encryption-keys-hacking.html">&nbsp;[Hacker News]</a>
+            <a href="https://www.theregister.co.uk/2019/11/12/don/">&nbsp;[The Register]</a>
+            <a
+              href="https://www.zdnet.com/article/tpm-fail-vulnerabilities-impact-tpm-chips-in-desktops-laptops-servers/">&nbsp;[ZDNet]</a>
+          </small>
+        </li>
+        <li>M Schwarz, M Lipp, <strong>D Moghimi</strong>, J Van Bulck, J Stecklina, T Prescher, D Gruss. <a
+            href="https://dl.acm.org/doi/10.1145/3319535.3354252">"ZombieLoad: Cross-Privilege-Boundary Data
+            Sampling"</a>
+          The 26th ACM Conference on Computer and Communications Security (CCS 2019).
+          <small><a href="papers/acmccs2019-zombieload.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/acmccs2019-zombieload.bib">&nbsp;[Cite]</a></small>
+          &nbsp;&nbsp;<small></br><b>Press Coverage</b>:
+            <a
+              href="https://searchsecurity.techtarget.com/news/252463531/ZombieLoad-More-side-channel-attacks-put-Intel-chips-at-risk">&nbsp;[Tech
+              Target]</a>
+            <a href="https://www.foxnews.com/tech/intel-chip-zombieload-flaw-hackers-steal-data">&nbsp;[Fox News]</a>
+          </small>
+        </li>
+        <li>M Minkin , <strong>D Moghimi</strong> , M Lipp , M Schwarz , J Van Bulck , D Genkin , D Gruss , F
+          Piessens, B Sunar, Y Yarom.
+          <a href="https://mdsattacks.com/files/fallout.pdf">"Fallout: Reading Kernel Writes From User Space"</a> 
+          arXiv preprint arXiv:1905.12701 merged with <em>Store-to-Leak </em>(arXiv:1905.05725), under Canella et al.
+          <a href=https://dl.acm.org/doi/10.1145/3319535.3363219>"Fallout: Leaking Data on Meltdown-resistant
+            CPUs"</a> 
+          The 26th ACM Conference on Computer and Communications Security (CCS 2019).
+          <small><a href="papers/acmccs2019-fallout.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/acmccs2019-fallout.bib">&nbsp;[Cite]</a></small>
+          &nbsp;&nbsp;<small></br><b>Press Coverage</b>:
+            <a href="https://www.wired.com/story/intel-mds-attack-speculative-execution-buffer/">&nbsp;[Wired
+              News]</a>
+          </small>
+        </li>
+        <li>S Islam, <strong>A Moghimi</strong>, I Bruhns, M Krebbel, B Gulmezoglu, T Eisenbarth, B Sunar.
+          <a href="https://dl.acm.org/doi/abs/10.5555/3361338.33613826">"SPOILER: Speculative Load Hazards Boost
+            Rowhammer and Cache Attacks"</a>
+          The 28th USENIX Security Symposium (SEC 2019).
+          <small><a href="papers/usenixsec19-Spoiler.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/usenixsec19-Spoiler.bib">&nbsp;[Cite]</a></small>
+          <small><a href="slides/sec2019-spoiler.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://www.youtube.com/watch?v=353WETEIXl0">&nbsp;[Video]</a></small>
+          &nbsp;&nbsp;<small></br><b>Press Coverage</b>:
+            <a href="https://www.theregister.co.uk/2019/03/05/spoiler_intel_processor_flaw/">&nbsp;[The Register]</a>
+            <a
+              href="https://www.zdnet.com/article/all-intel-chips-open-to-new-spoiler-non-spectre-attack-dont-expect-a-quick-fix/">&nbsp;[ZDNet]</a>
+            <a
+              href="https://www.forbes.com/sites/kenkam/2019/03/05/new-intel-cpu-vulnerability-bodes-well-for-amd/#16d102c77961">&nbsp;[Forbes
+              Article]</a>
+          </small>
+        </li>
+        <li><strong>A Moghimi</strong>, J Wichelmann, T Eisenbarth, B Sunar.
+          <a href="https://link.springer.com/article/10.1007/s10766-018-0611-9">"MemJam: A False Dependency Attack
+            against Constant-Time Crypto Implementations"</a> (Extended Version)
+          International Journal of Parallel Programming (IJPP 2019).
+          <small><a href="papers/ijpp2019-MemJam.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/ijpp2019-MemJam.bib">&nbsp;[Cite]</a></small>
+        </li>
+        <li>J Wichelmann, <strong>A Moghimi</strong>, T Eisenbarth, B Sunar.
+          <a href=https://dl.acm.org/doi/10.1145/3274694.3274741>"MicroWalk: A Framework for Finding Side Channels in
+            Binaries"</a> 
+          Annual Computer Security Applications Conference (ACSAC 2018).
+          <small><a href="papers/acsac2018-MicroWalk.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/acsac2018-MicroWalk.bib">&nbsp;[Cite]</a></small>
+        </li>
+        <li>F Dall, G De Micheli, T Eisenbarth, D Genkin, N Heninger, <strong>A Moghimi</strong>, Y Yarom.
+          <a href=https://tches.iacr.org/index.php/TCHES/article/view/879>"CacheQuote: Efficiently Recovering
+            Long-term Secrets of SGX EPID via Cache Attacks"</a> 
+          IACR Transactions on Cryptographic Hardware and Embedded Systems (TCHES 2018).
+          <small><a href="papers/tches2018-CacheQuote.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/tches2018-CacheQuote.bib">&nbsp;[Cite]</a></small>
+        </li>
+        <li><strong>A Moghimi</strong>, T Eisenbarth, B Sunar.
+          <a href=https://dl.acm.org/doi/10.1007/s10766-018-0611-9>"MemJam: A False Dependency Attack against
+            Constant-Time Crypto Implementations in SGX"</a> 
+          Cryptographers' Track at the RSA Conference (CT-RSA 2018).
+          <small><a href="papers/ctrsa2018-MemJam.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/ctrsa2018-MemJam.bib">&nbsp;[Cite]</a></small>
+        </li>
+        <li><strong>A Moghimi</strong>, G Irazoqui, T Eisenbarth.
+          <a href=https://link.springer.com/chapter/10.1007/978-3-319-66787-4_4>"CacheZoom: How SGX Amplifies The
+            Power of Cache Attacks"</a> 
+          International Conference on Cryptographic Hardware and Embedded Systems (CHES 2017).
+          <small><a href="papers/chess2017-CacheZoom.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/chess2017-CacheZoom.bib">&nbsp;[Cite]</a></small>
+        </li>
+      </ol>
 
-        <!-- Preview Image -->
-        <!-- <img class="img-fluid rounded" src="http://placehold.it/600x300" alt=""> -->
-        <div class="span4">
-          
-          <!-- <div class="content-heading"><h3>Experience &nbsp </h3></div> -->
-          <!-- <p style="clear:both">Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p> -->
-          <p class="lead">
-            I am a postdoctoral scholar &mdash; <a href=https://cse.ucsd.edu/about/news/cse-launches-unique-postdoctoral-fellowship-program>UCSD CSE fellow</a> working with <a href=https://cseweb.ucsd.edu/~nadiah/>Nadia Heninger</a> and <a href=https://cseweb.ucsd.edu/~dstefan/>Deian Stefan</a>. 
-            <!---->
-            I received my PhD in ECE and MSc in CS from <a href=http://wpi.edu/>WPI</a> under the supervision of <a href=https://users.wpi.edu/~sunar//index.html>Berk Sunar</a> and <a href=http://users.wpi.edu/~teisenbarth/>Thomas Eisenbarth</a>.      
-            <!---->
-            I work on computer security and privacy; 
-            microarchitectural security, 
-            side channels and cryptanalysis, and 
-            architectural security primitives.
-            <!---->
-            I have also interned at <a href=https://talosintelligence.com/>Cisco Talos</a> working on fuzz testing for automated vulnerability discovery and <a href=https://www.qualcomm.com/company/product-security>Qualcomm product security initiative (QPSI)</a> working on system-level security of PCIe controllers.
-          </p>
-          <h4>Contact Information: <div class="float-sm-right"><a href=media/profile.jpg  ><img class="mx-auto rounded-circle" src="media/profile_zoom.png" width="135"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></h4>
-          <ul class="lead">
-            <li><i class="fa fa-envelope"></i>&nbsp; Email: <a href="mailto:danielm@ucsd.edu">danielm@ucsd.edu</a> </li>
-            <li><i class="fa fa-twitter"></i>&nbsp; Twitter: <a href="https://twitter.com/danielmgmi">@danielmgmi</a></li>
-            <li><i class="fa fa-linkedin"></i>&nbsp; Linkedin: <a href="https://www.linkedin.com/in/danielmgmi/">danielmgmi</a></li>
-          </ul>          
-          <hr>
-          <h4>Selected Publications:</h4>
-          <ol class="lead">
-            <li><strong>D Moghimi</strong>, J Van Bulck, N Heninger, F Piessens, B Sunar. <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat">"CopyCat: Controlled Instruction-Level Attacks on Enclaves"</a> 
-              USENIX Security 2020.
-            </li>
-            <li><strong>D Moghimi</strong>, M Lipp, B Sunar, M Schwarz. <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-medusa">"Medusa: Microarchitectural Data Leakage via Automated Attack Synthesis"</a>
-              USENIX Security 2020.
-            </li>            
-            <li>J Van Bulck, <strong>D Moghimi</strong>, M Schwarz, M Lipp, M Minkin, D Genkin, Y Yarom, B Sunar, D Gruss, F Piessens.<a href="https://lviattack.eu/lvi.pdf">"LVI: Hijacking Transient Execution through Microarchitectural Load Value Injection"</a>            
-              IEEE S&P 2020.
-            </li>
-            <li><strong>D Moghimi</strong>, B Sunar, T Eisenbarth, N Heninger. <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-tpm">"TPM-Fail: TPM meets Timing and Lattice Attacks"</a> 
-              USENIX Security 2020.
-            </li>
-            <li>M Schwarz, M Lipp, <strong>D Moghimi</strong>, J Van Bulck, J Stecklina, T Prescher, D Gruss. <a href="https://dl.acm.org/doi/10.1145/3319535.3354252">"ZombieLoad: Cross-Privilege-Boundary Data Sampling"</a>
-              ACM CCS 2019.              
-            </li>                     
-            <li><strong>A Moghimi</strong>, G Irazoqui, T Eisenbarth. 
-              <a href=https://link.springer.com/chapter/10.1007/978-3-319-66787-4_4>"CacheZoom: How SGX Amplifies The Power of Cache Attacks"</a> 
-              IACR CHES 2017.              
-            </li>
-          </ol>
-          <p class="lead">
-          For a full list of my academic publications, check <a href=/pub.html>this</a> out.           
-          </p>
-          <hr>          
-          <h4>Professional Services:</h4>
-          <ul class="lead">
-            <li><strong>Organizer: </strong>Workshop on Attacks on Cryptography (WAC 4)</li>
-            <li><strong>Program Committe:</strong> ACM ASHES 2020, IAW-IACR SPACE 2021, ACM ASHES 2021, IACR TCHES 2022, Usenix Security 2022</li>
-            <li><strong>Journal/External Reviewer:</strong> IFIP/IEEE VLSI-SoC 2017, IACR Asiacrypt 2017, IACR TCHES 2018, IEEE TIFS 2018, IACR Kangacrypt 2018, DATE 2019, IJIS 2019, IACR  Eurocrypt 2020, ACM JETC 2020, IEEE TIFS 2020, ACM DTRAP 2020, IEEE TDSC 2020, ACM CCS 2021, ACM DTRAP 2021, ACM CSUR 2021</li>
-            <li><strong>Shadow Program Committe:</strong> IEEE S&P 2017 and 2019</li>
-          </ul>
-          </p>
-
-        </div>
-
-        <hr>
-
-        <!-- <h4>News:</h4>
-        <dl class="row">                    
-          <dt class="col-sm-2">03/01/2021</dt><dd class="col-sm-10">Swivel got accepted to Usenix Security 2021.</dt> 
-          <dt class="col-sm-2">01/04/2021</dt><dd class="col-sm-10">joined <a href=https://cse.ucsd.edu/>UCSD CSE</a> as a Postdoctoral Scholar.</dt> 
-          <dt class="col-sm-2">12/04/2020</dt><dd class="col-sm-10">passed my PhD defense. <a href=slides/wpi2020-moghimi-phddefense.pdf>Here</a> are the slides for my presentation.</dt> 
-          <dt class="col-sm-2">10/01/2020</dt><dd class="col-sm-10">presented <a href=https://www.youtube.com/watch?v=BpocgiNuJKY>JackHammer</a> with Thore and Zane at <a href=https://hardwear.io/archives/netherlands-2020/>hardwear.io Netherlands 2020</a>.</dt>
-          <dt class="col-sm-2">09/14/2020</dt><dd class="col-sm-10">joined Qualcomm Product Security as an Intern for 13 weeks.</dt>
-          <dt class="col-sm-2">09/08/2020</dt><dd class="col-sm-10">was awarded UCSD CSE Postdoctoral Fellowship!</dt> 
-          <dt class="col-sm-2">09/04/2020</dt><dd class="col-sm-10">passed my PhD area exam. <a href=slides/wpi2020-moghimi-areaexam.pdf>Here</a> are the slides for my presentation.</dt> 
-          <dt class="col-sm-2">08/24/2020</dt><dd class="col-sm-10">served on the program committe for <a href="http://ashesworkshop.org/committees-2020">ASHES 2020</a>.</dt> 
-          <dt class="col-sm-2">08/16/2020</dt><dd class="col-sm-10">presented TPM-Fail at <a href="https://crypto.iacr.org/2020/wac.php">Workshop on Attacks in Cryptography 2020</a>.</dt> 
-          <dt class="col-sm-2">08/14/2020</dt><dd class="col-sm-10">presented three papers, <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat">CopyCat</a>, <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-medusa">Medusa</a> and <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-tpm">TPM-Fail</a> at Usenix Security 2020.</dt> 
-          <dt class="col-sm-2">08/06/2020</dt><dd class="col-sm-10">gave my first Black Hat talk on <a href=https://www.blackhat.com/us-20/briefings/schedule/#remote-timing-attacks-on-tpms-aka-tpm-fail-20848>TPM-Fail</a>.</dt> 
-          <dt class="col-sm-2">06/22/2020</dt><dd class="col-sm-10">CopyCat got accepted to <a href=https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat>Usenix Security 2020</a>.</dt> 
-          <dt class="col-sm-2">04/30/2020</dt><dd class="col-sm-10">presented <a href>Breaking Deployed Crypto</a> and <a href>LVI</a> (with Daniel and Jo at <a href=https://hardwear.io/archives/virtual-con-2020/>hardwear.io 2020</a>.</dt>
-          <dt class="col-sm-2">03/15/2020</dt><dd class="col-sm-10"><a href=https://arxiv.org/abs/1912.11523/>JackHammer</a> got accepted to TCHES 2020.</dt>       
-          <dt class="col-sm-2">03/10/2020</dt><dd class="col-sm-10"><a href=https://lviattack.eu/>LVI</a> got accepted to IEEE S&P 2020.</dt>       
-          <dt class="col-sm-2">02/24/2020</dt><dd class="col-sm-10">Medusa got accepted to <a href=https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-medusa>Usenix Security 2020</a>.</dt> 
-          <dt class="col-sm-2">02/20/2020</dt><dd class="col-sm-10">presented "uArch Flaws ​in the Heart of the Memory..." in <a href="https://www.columbia.edu/" >Columbia University</a>.</dt> 
-          <dt class="col-sm-2">01/08/2020</dt><dd class="col-sm-10">presented <a href=https://rwc.iacr.org/2020/slides/Moghimi.pdf>TPM-FAIL</a> in <a href=https://rwc.iacr.org/2020/program.html>Real World Crypto 2020</a>.</dt> 
-          <dt class="col-sm-2">11/13/2019</dt><dd class="col-sm-10">visiting <a href=https://cse.ucsd.edu/>UCSD</a> for a month as a graduate student visitor, hosted by <a href=https://cseweb.ucsd.edu/~nadiah/>Nadia Heninger</a>.</dt> 
-          <dt class="col-sm-2">11/12/2019</dt><dd class="col-sm-10"><a href=http://tpm.fail/>TPM-FAIL</a> got accepted to <a href=https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-tpm>Usenix Security 2020</a> and <a href=https://rwc.iacr.org/2020/program.html>Real World Crypto 2020</a>.</dt> 
-          <dt class="col-sm-2">11/09/2019</dt><dd class="col-sm-10">presented <a href=https://zombieloadattack.com/>ZombieLoad</a> in <a herf=https://talks.toorcon.net/toorcon21/talk/CVYNXS/>ToorCon 21</a>.</dt> 
-          <dt class="col-sm-2">09/01/2019</dt><dd class="col-sm-10"><a href=https://zombieloadattack.com/>ZombieLoad</a> and <a href=https://mdsattacks.com/files/fallout.pdf>Fallout</a> got accepted to <a href=https://sigsac.org/ccs/CCS2019/index.php/program/accepted-papers/>ACM CCS 2019</a>.</dt> 
-          <dt class="col-sm-2">08/14/2019</dt><dd class="col-sm-10">presented <a href=https://www.usenix.org/system/files/sec19-islam.pdf>SPOILER</a> in <a href=https://www.youtube.com/watch?v=353WETEIXl0#action=share>Usenix Security 2019 (Santa Clara, CA)</a>.</dt> 
-          <dt class="col-sm-2">06/11/2019</dt><dd class="col-sm-10">presented μArch Attacks and Cloud Accelerators in Intel SCAP Workshop (Hillsboro).</dt> 
-          <dt class="col-sm-2">05/24/2019</dt><dd class="col-sm-10"><a href=https://www.usenix.org/system/files/sec19-islam.pdf>SPOILER</a> got accepted to <a href=https://www.usenix.org/conference/usenixsecurity19/technical-sessions>Usenix Security 2019</a>.</dt> 
-          <dt class="col-sm-2">03/12/2019</dt><dd class="col-sm-10">gave an introductory talk about Intel SCAP collaboration in University of Florida.</dt> 
-          <dt class="col-sm-2">01/18/2019</dt><dd class="col-sm-10">attended <a href=https://www.ieee-security.org/TC/SP2019/studentpc.html>IEEE S&P 2019 Student PC</a> in NYC.</dt> 
-          <dt class="col-sm-2">10/30/2018</dt><dd class="col-sm-10"><a href=https://dl.acm.org/doi/10.1007/s10766-018-0611-9>MemJam “extended”</a> got accepted to <a href=https://link.springer.com/article/10.1007/s10766-019-00636-z>IJPP’18 sp “Side-channel and fault analysis”</a>.</dt> 
-          <dt class="col-sm-2">08/21/2018</dt><dd class="col-sm-10"><a href=https://dl.acm.org/doi/10.1145/3274694.3274741>MicroWalk</a> got accepted to <a href=https://www.acsac.org/2018/program-files/>ACSAC’18</a>.</dt> 
-          <dt class="col-sm-2">04/17/2018</dt><dd class="col-sm-10">presented MemJam in <a href=https://published-prd.lanyonevents.com/published/rsaus18/sessionsFiles/8594/CRYP-T07-Side-Channels-1.pdf>Cryptographers’ track of RSA Conference</a>.</dt> 
-          <dt class="col-sm-2">03/15/2018</dt><dd class="col-sm-10"><a href=https://tches.iacr.org/index.php/TCHES/article/view/879>CacheQuote</a> got accepted to <a href=https://ches.iacr.org/2018/papers.shtml>TCHES’18</a>.</dt> 
-          <dt class="col-sm-2">12/10/2017</dt><dd class="col-sm-10"><a href=https://link.springer.com/chapter/10.1007/978-3-319-76953-0_2>MemJam</a> got accepted to <a href=https://link.springer.com/book/10.1007/978-3-319-76953-0>CT-RSA’18</a>.</dt> 
-          <dt class="col-sm-2">09/29/2017</dt><dd class="col-sm-10">presented Side-channel Attacks on SGX Enclaves in <a href=https://nesd.ccis.northeastern.edu/>NESD’17</a>.</dt> 
-          <dt class="col-sm-2">06/06/2017</dt><dd class="col-sm-10"><a href=https://eprint.iacr.org/2017/618>CacheZoom</a> got accepted to <a href=https://ches.iacr.org/2017/program.shtml>CHES’17</a>.</dt> 
-          <dt class="col-sm-2">04/21/2017</dt><dd class="col-sm-10">defended my <a href=https://digitalcommons.wpi.edu/cgi/viewcontent.cgi?article=1398&context=etd-theses>MS Thesis</a> in Computer Science.</dt> 
-          <dt class="col-sm-2">01/06/2017</dt><dd class="col-sm-10">attended <a href=https://www.ieee-security.org/TC/SP2017/studentpc.html>IEEE S&P 2017 Student PC</a> in NYC.</dt> 
-          <dt class="col-sm-2">08/11/2016</dt><dd class="col-sm-10">presented SCREAM in <a href=https://www.usenix.org/conference/usenixsecurity16/poster-session>USENIX Security’16 poster session</a>.</dt> 
-          <dt class="col-sm-2">06/06/2016</dt><dd class="col-sm-10">joined Cisco Talos in Austin, TX for 12 weeks as a Research Intern.</dd>
-          <dt class="col-sm-2">01/04/2016</dt><dd class="col-sm-10">transferred to <a href=https://www.wpi.edu/>WPI</a> as a Graduate Student.</dd>
-          <dt class="col-sm-2">09/22/2015</dt><dd class="col-sm-10">joined <a href=https://wayne.edu/>WSU</a> as a Graduate Student.</dd>
-      </dl> -->
-
-      <!-- <hr> -->
-      </div>
-
-      <!-- Sidebar Widgets Column -->
-      <div class="col-md-3">
+      <h5>Preprints / Technical Report</h5>
+      <ol class="lead">
+        <li>S Cauligi, C Disselkoen, <strong>D Moghimi</strong>, G Barthe, D Stefan. <a
+            href="https://arxiv.org/abs/2105.05801">"SoK: Practical Foundations for Spectre Defenses</a>" arXiv
+          preprint arXiv:1907.03651</li>
+        <li>B Gulmezoglu, <strong>A Moghimi</strong>, T Eisenbarth, B Sunar. <a
+            href="https://arxiv.org/abs/1907.03651">"FortuneTeller: Predicting Microarchitectural Attacks via
+            Unsupervised Deep Learning</a>" arXiv preprint arXiv:1907.03651</li>
+        <li><strong>D Moghimi</strong>. "Data Sampling on MDS-resistant 10th Generation Intel Core (Ice Lake)"
+          <small><a href="papers/techreport2020-IceLakeMDS.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/techreport2020-IceLakeMDS.bib">&nbsp;[Cite]</a></small>
+        </li>
+      </ol>
 
 
+      <h5>Posters</h5>
+      <ol class="lead">
+        <li>N Brown, N Patel, P Plenefisch, <strong>A Moghimi</strong>, T Eisenbarth, C Shue, and K
+          Venkatasubramanian.
+          <a href="https://www.usenix.org/conference/usenixsecurity16/poster-session">"Poster: Scream: Sensory Channel
+            Remote Execution Attack Methods"</a> 
+          Usenix Security (USENIX Security '16 Poster Session).
+          <small><a href="papers/usenixsec16-SCREAM.pdf">&nbsp;[PDF]</a></small>
+        </li>
+        <li>M Abi-Antoun, E Khalaj, Radu Vanciu, and <strong>A Moghimi</strong>.
+          <a href=https://dl.acm.org/doi/10.1145/2898375.2898377>"Poster: Abstract Runtime Structure for Reasoning
+            about Security"</a> 
+          Proceedings of the Symposium and Bootcamp on the Science of Security (HotSoS '16).
+          <small><a href="papers/hotsos16-ARSforRaS.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="papers/hotsos16-ARSforRaS.bib">&nbsp;[Cite]</a></small>
+        </li>
+      </ol>
 
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <div class="card-body">
-            <a  class="twitter-timeline" href="https://twitter.com/danielmgmi?ref_src=twsrc%5Etfw" data-tweet-limit="4"></a> >Tweets by danielmgmi</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
-        </div>
-
-      </div>
+      <h5>Thesis / Dissertation </h5>
+      <ol class="lead">
+        <li>
+          <strong>D Moghimi. </strong>
+          "Revisiting Isolated and Trusted Execution via Microarchitectural Cryptanalysis"</a> 
+          <i>PhD Dissertation</i> at Electrical and Computer Engineering of Worcester Polytechnic Institute (December
+          2020)
+          <small><a href="papers/wpi2020-moghimi-phddissertation.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="slides/wpi2020-moghimi-phddefense.pdf">&nbsp;[Slides]</a></small>
+          <!-- <small><a href="slides/wpi2020-moghimi-areaexam.pdf">&nbsp;[Slides - Area Exam]</a></small> -->
+          <small><a href="https://www.youtube.com/watch?v=Q7ijHrww5LM">&nbsp;[Video]</a></small>
+        </li>
+        <li><strong>D Moghimi. "</strong>How SGX Amplifies the Power of Cache Attacks"
+          <i>MS Thesis</i> at Computer Science of Worcester Polytechnic Institute (May 2017)
+          <small><a href="papers/wpi2017-moghimi-msthesis.pdf">&nbsp;[PDF]</a></small>
+          <small><a href="slides/wpi2017-moghimi-msthesis.pdf">&nbsp;[Slides]</a></small>
+        </li>
+      </ol>
 
     </div>
-    <!-- /.row -->
+    <div id=talks>
+      <hr>
+      <h3>Talks</h3>
+      <ol class="lead">
+        <li>
+          <strong>D Moghimi,</strong> Thore Tiemann, Zane Weissman.
+          "JackHammer: Rowhammer and Cache Attacks on Heterogeneous FPGA-CPU Platforms "
+          <i>Conference talk</i> at hardwear.io Netherlands 2020 - October 2020
+          <small><a href="slides/hardweario2020-jackhammer.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://www.youtube.com/watch?v=BpocgiNuJKY">&nbsp;[Video]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi. </strong>
+          <a>"CopyCat: Controlled Instruction-Level Attacks on Enclaves"</a> 
+          <i>Invited talk </i>at Intel Labs "Online" - September 2020
+          <small><a href="slides/intellabs2020-copycat.pdf">&nbsp;[Slides]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi. </strong>
+          <a href="https://www.blackhat.com/us-20/briefings/schedule/#remote-timing-attacks-on-tpms-aka-tpm-fail-20848">"Remote
+            Timing Attacks on TPMs, AKA TPM-Fail"</a>
+          <i>Conference talk</i> at Black Hat USA 2020 "Online" - August 2020
+          <small><a href="slides/blackhat2020-tpmfail.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://www.youtube.com/watch?v=QGKEwmMqwxE">&nbsp;[Video]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi. </strong>
+          <a>"Microarchitectural Data Leakage via Automated Attack Synthesis"</a>
+          <i>Invited talk</i> at Intel Product Security Incedent Response Team "Online" - June 2020
+          <small><a href="slides/ipsirt2020-medusa.pdf">&nbsp;[Slides]</a></small>
+        </li>
+        <li>
+          D Gruss, <strong>D Moghimi,</strong> J Van Bulck.
+          "LVI: Hijacking Transient Execution with Load Value Injection"
+          <i>Conference talk</i> at Hardwear.io Virtual Con 2020 - April 2020
+          <small><a href="slides/hardweario2020-lvi.pdf">&nbsp;[Slides]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi. </strong>
+          <a
+            href="https://hardwear.io/virtual-con-2020/speakers/breaking-deployed-crypto-side-channel-analysts-way.php">"Breaking
+            Deployed Crypto: The Side Channel Analyst’s Way"</a>
+          <i>Conference talk</i> at Hardwear.io Virtual Con 2020 - April 2020
+          <small><a href="slides/hardweario2020-breakingcrypto.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://www.youtube.com/watch?v=X7wXLDAqj70">&nbsp;[Video]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi. </strong>
+          "Exploiting Microarchitectural Flaws in the Heart of the Memory Subsystem​"
+          <i>Invited talk</i> at Columbia University, New York City, NY - February 2020
+          <small><a href="slides/columbia2020-uarchattacks.pdf">&nbsp;[Slides]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi. </strong>
+          <a href=https://rwc.iacr.org/2020/program.html>"TPM-Fail: TPM meets Timing and Lattice Attacks"</a>
+          <i>Conference talk</i> at Real World Crypto 2020, New York City, NY - January 2020
+          <small><a href="slides/rwc2020-tpmfail.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://youtu.be/KH4WCZGcSvY?t=1984">&nbsp;[Video]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi.</strong>
+          <a href="https://www.youtube.com/watch?v=M0W92rEJziI#action=share">"ZombieLoad: Leaking Data on Intel
+            CPUs"</a>
+          <i>Conference talk</i> at ToorCon 21 (2019), San Diego, CA - November 2019
+          <small><a href="slides/toorcon2019-zombiload.pdf">&nbsp;[Slides]</a></small>
+          <small><a href="https://www.youtube.com/watch?v=M0W92rEJziI">&nbsp;[Video]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi.</strong>
+          "Microarchitectural Attacks and Cloud Accelerators"
+          <i>Guest talk</i> at Intel SCAP Conference 2019, Intel, Hillsboro, OR - June 2019
+          <small><a href="slides/scap2019-oregon.pdf">&nbsp;[Slides]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi.</strong>
+          "Microarchitectural Attacks: Protecting Cloud Accelerators"
+          <i>Guest talk</i> at Intel SCAP Meeting 2019, University of Florida, Gainesville, FL - April 2019
+          <small><a href="slides/scap2019-florida.pdf">&nbsp;[Slides]</a></small>
+        </li>
+        <li>
+          <strong>D Moghimi.</strong>
+          <a
+            href="https://published-prd.lanyonevents.com/published/rsaus18/sessionsFiles/8594/CRYP-T07-Side-Channels-1.pdf">"MemJam:
+            A False Dependency Attack against Constant-Time Crypto ..."</a>
+           <i>Conference talk </i> at RSA Conference 2018 (CT-RSA 2018),
+          San Francisco, CA - April 2018<small><a href="slides/ctrsa2018-memjam.pdf">&nbsp;[Slides]</a></small>
+        </li>
+        <li><strong>D Moghimi. </strong><a href="https://nesd.ccis.northeastern.edu/">"Side-channel Attacks on SGX
+            Enclaves"</a>
+          <i>Conference talk </i> at New England Security Day (NESD 2017),
+          Northeastern, Boston, MA - September 2017<small><a></a></small>
+        </li>
+      </ol>
+    </div>
+    
+    <div id="advisory">
+      <hr>
+      <h3>CVEs & Security Advisory</h3>
+      <h5><a href="https://www.intel.com">Intel</a></h5>
+      <ul class="lead">
+        <li><a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00241.html">INTEL-SA-00241</a>/<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11090">CVE-2019-11090</a> – Cryptographic timing conditions in the subsystem for Intel(R) PTT before versions xxx; Intel(R) TXE xxx; Intel(R) SPS before versions xxx may allow an unauthenticated user to potentially enable information disclosure via network access.</li>
+        <li><a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html">INTEL-SA-00233/CVE-2018-12126</a> – Microarchitectural Store Buffer Data Sampling (MSBDS): Store buffers on some microprocessors utilizing speculative execution may allow an authenticated user to potentially enable information disclosure via a side channel with local access.</li>
+        <li><a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00238.html">INTEL-SA-00238</a>/<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0162">CVE-2019-0162</a> – Memory access in virtual memory mapping for some microprocessors may allow an authenticated user to potentially enable information disclosure via local access.</li>
+        <li><a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00106.html">INTEL-SA-00106/CVE-2018-3691</a> – Intel Integrated Performance Primitives Cryptography Library before version 2018 U2.1 does not properly ensure constant execution time.</li>
+        <li><a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00135.html">INTEL-SA-00135</a> – Intel SGX SDK and Platform Software (PSW) utilize the Intel IPP Cryptography Library.  Vulnerabilities in this library have been reported that may enable a local attacker utilizing software-based side channels to recover certain cryptographic keys.</li>
+        <li><a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00202.html">INTEL-SA-00202</a>/<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12155">CVE-2018-12155</a> – Data leakage in cryptographic libraries for Intel(R) IPP before 2019 update 1 release may allow an authenticated user to potentially enable information disclosure via local access.</li>
+      </ul>
+      <h5><a href="http://st.com">STMicroelectronics</a></h5>
+      <ul class="lead">
+        <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16863">CVE-2019-16863</a> - STMicroelectronics ST33TPH* TPM 2.0 devices before 2019-09-12 allow attackers to extract the ECDSA private key via a side-channel timing attack because ECDSA scalar multiplication is mishandled, aka TPM-FAIL.</li>
+      </ul class="lead">
+      <h5><a href="https://www.wolfssl.com/">WolfSSL</a></h5>
+      <ul class="lead">
+        <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19960 ECC">CVE-2019-19960</a> In wolfSSL before 4.3.0, wc_ecc_mulmod_ex does not properly resist side-channel attacks.</li>
+        <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19961">CVE-2019-19961</a>In wolfSSL before 4.3.0, RSA key generation uses the non-constant-time BEEA modular inversion algorithm during the generation of RSA private key parameters, allowing attackers to leak the RSA key via a side-channel attack.</li>
+        <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19962">CVE-2019-19962</a> In wolfSSL before 4.3.0 mishandles calls to wc_SignatureGenerateHash, leading to fault injection in RSA cryptography.</li>
+        <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19963">CVE-2019-19963</a> In wolfSSL before 4.3.0, DSA signing uses the BEEA algorithm during modular inversion of the nonce without blinding, leading to a side-channel attack against the nonce.</li>
+      </ul>
+      <h5><a href="http://www.ahnlab.com/">Ahnlab</a></h5>
+      <ul class="lead">
+        <li style="text-align: justify;"><a href="https://nvd.nist.gov/vuln/detail/CVE-2013-3947">CVE-2013-3947</a> – AhnLab V3 Internet Security MedCoreD.sys 0xA3350014 IOCTL Handling Local Buffer Overflow</li>
+      </ul>
+      <h5><a href="http://www.agnitum.com/">Agnitum</a></h5>
+      <ul class="lead">
+        <li style="text-align: justify;"><a href="https://vuldb.com/?id.9952" target="_blank" rel="noopener">OSVDB 96208</a> – Agnitum Outpost Security Suite Pro acx.exe Service Named Pipe common_handler Interface Command 17h Component Registration Local Traversal Privilege Escalation</li>
+        <li style="text-align: justify;"><a href="https://vuldb.com/?id.9953" target="_blank" rel="noopener">OSVDB 96209</a> – Agnitum Outpost Security Suite Pro Sandbox.sys Driver 80000208 IOCTL Buffer Allocation Handling Local Buffer Overflow</li>
+      </ul>
+      <h5><a href="https://www.avira.com/">Avira</a></h5>
+      <ul class="lead">
+        <li style="text-align: justify;"><a href="https://vuldb.com/?id.11005" target="_blank" rel="noopener">OSVDB 98976</a> – Avira Internet Security avipbb.sys Driver Trusted Process Control Code Execution Restriction Bypass Weakness</li>
+        <li style="text-align: justify;"><a href="https://vuldb.com/?id.11003" target="_blank" rel="noopener">OSVDB 98971 </a>– Avira Internet Security avipbb.sys Driver Control Code 0x222450 Local Buffer Overflow Weakness</li>
+      </ul>
+    </div>
+
+    <!-- </div> -->
+
+    <!-- <hr> -->
+
+
+  </div>
 
   </div>
   <!-- /.container -->
