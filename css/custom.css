@@ -1,13 +1,14 @@
 img[alt=profile] { width: 33%; float: right;}
 .fa {
-    color: black;
+    color: white;
 }
 #navbar {
     overflow: hidden;
-    background-color: white;
+    background-color: #333;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
     max-width: 720px;
     padding-bottom: 1%;
 }​
+
