@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Daniel Moghimi</title>
-    <link>https://moghimi.org/blog/</link>
-    <description>Recent content in Blog on Daniel Moghimi</description>
+    <title>bjj on Daniel Moghimi</title>
+    <link>https://moghimi.org/blog/bjj/</link>
+    <description>Recent content in bjj on Daniel Moghimi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
-    <lastBuildDate>Wed, 07 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://moghimi.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://moghimi.org/blog/bjj/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Journey from White Belt to Blue Belt in Jui-Jitsu</title>
       <link>https://moghimi.org/my-journey-from-white-belt-to-blue-belt-in-jui-jitsu/</link>
