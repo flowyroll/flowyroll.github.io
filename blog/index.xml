@@ -6,6 +6,16 @@
     <description>Recent content in Blog on Daniel Moghimi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <copyright>Copyright © 2020, Jane Doe.</copyright><atom:link href="https://moghimi.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2020, Jane Doe.</copyright>
+    <lastBuildDate>Sun, 27 Sep 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://moghimi.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TODO</title>
+      <link>https://moghimi.org/todo/</link>
+      <pubDate>Sun, 27 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://moghimi.org/todo/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
