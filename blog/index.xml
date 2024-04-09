@@ -6,6 +6,7 @@
     <description>Recent content in Blog on Daniel Moghimi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <copyright>Copyright © 2020, Jane Doe.</copyright><atom:link href="https://moghimi.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2020, Jane Doe.</copyright>
+    <atom:link href="https://moghimi.org/blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
