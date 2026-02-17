@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Daniel Moghimi &#8212; {title}</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+</head>
+<body>
+    <header>
+        <h1>Daniel Moghimi &nbsp;|&nbsp; Automatically Testing Cryptogragraphic Implementations (2018 - 2024)</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Research Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="publications.html">Publications</a>       
+            <a href="https://twitter.com/flowyroll"><i class="fa fa-twitter" style="font-size:23px"></i></a>
+            <a href="https://www.linkedin.com/in/flowyroll"><i class="fa fa-linkedin" style="font-size:23px"></i></a>
+            <a href="http://github.com/flowyroll"><i class="fa fa-github" style="font-size:23px"></i></a>
+            <a href="https://scholar.google.com/citations?user=OXLo0LMAAAAJ&amp;hl=en"><i class="fa ai ai-google-scholar-square" style="font-size:23px"></i></a>
+            <a href="https://www.youtube.com/playlist?list=PLdqUUPqbL3gRFOP5kUQHO4cPR5mBOj4XM&amp;hl=en"><i class="fa fa-youtube" style="font-size:23px"></i></a>
+            <a href="mailto:danielmm@google.com"><i class="fa fa-envelope" style="font-size:23px"></i></a>
+        </nav>
+    </header>
+    <main>
+                    <p>From 2018 to 2024, I conducted research on developing tools and techniques for the automated discovery of vulnerabilities in cryptographic implementations. Although cryptographic algorithms may be mathematically secure, their physical execution on diverse hardware introduces environmental variables that can compromise safety. My work centered on analyzing exposure to side-channel leaks such as timing, cache and microarchitectural side channels, and power consumption, which significantly complicate the verification of resilience against key and data exposure.</p>
+<p><img alt="drawing" src="assets/evilcrypto.png" title="Dealing with evil cryptography." /></p>
+<p>My research led to the discovery of critical vulnerabilities in widely deployed systems. In <a href="https://dl.acm.org/doi/abs/10.1007/s10766-018-0611-9">MemJam</a>, I demonstrated that software-level assumptions regarding cache timing are undermined by microarchitectures leaking intra-cache granular data, allowing for key recovery against Intel IPP’s constant-time protections. Additionally, in [TPM-Fail], I identified remote timing vulnerabilities in highly vetted TPM firmware, proving that subtle execution variations can lead to full signing and attestation key recovery.</p>
+<p>Manual analysis of cryptographic systems is increasingly unsustainable as developers consistently reintroduce vulnerabilities across product generations. To address this, we developed <a href="https://dl.acm.org/doi/10.1145/3274694.3274741">MicroWalk</a>, a dynamic binary analysis framework combining binary instrumentation, fuzzing, and mutual information (MI) analysis, which uncovered further vulnerabilities in the Intel IPP library. At Google, I contributed to <a href="https://tches.iacr.org/index.php/TCHES/article/view/11685">GPAM</a>, a transformer-based ML pipeline for detecting secret key leakage via power and electromagnetic signals. Furthermore, with <a href="https://www.arxiv.org/abs/2601.11745">DroidCCT</a>, we established the first comprehensive distributed compliance framework to automatically detect cryptographic gaps across the software, firmware, and hardware of Android devices.</p>
+<p>These efforts have led to the remediation of several vulnerabilities in highly trusted systems and sparked further research and development. Collaborators, since, have extended <a href="https://dl.acm.org/doi/10.1145/3548606.3560654">MicroWalk-CI</a> to discover additional vulnerabilities in software cryptography. And, Google is actively extending and applying GPAM as an open-source Side-channel Analysis ML (<a href="https://github.com/google/scaaml/tree/main/papers/2024/GPAM">SCAAML</a>) model to evaluate new hardware countermeasures.</p>
+<!-- 
+
+Discuss these works 
+
+MemJam
+MicroWalk 
+TPM-Fail
+GPAM
+DroidCCT 
+-->
+
+<!-- As part of this work, I contributed to the discovery of [Microarchitectural Data Sampling (MDS)](https://mdsattacks.com/) vulnerabilities: [Fallout](https://dl.acm.org/doi/10.1145/3319535.3363219), [ZombieLoad](https://dl.acm.org/doi/10.1145/3319535.3354252), and [LVI](https://ieeexplore.ieee.org/document/9152763/). These findings revealed that speculative data paths in Intel CPUs could leak secrets across isolation boundaries. The discoveries were some of the most critical CPU vulnerabilities ever discovered, prompting significant mitigations, widespread [microcode updates](https://www.intel.com/content/www/us/en/developer/topic-technology/software-security-guidance/processors-affected-consolidated-product-cpu-model.html#tab-blade-1-2), and [fundamental changes](https://www.sigarch.org/secure-computer-architecture-in-the-post-meltdown-world-a-long-road-ahead/) in the way high-performance computing systems were secured, from personal computers to large-scale data centers.
+
+I later identified [Downfall](https://downfall.page/), a previously overlooked variant of MDS that persisted in Intel CPUs through the [11th generation](https://en.wikipedia.org/wiki/Tiger_Lake). Because MDS and Downfall affected nearly all Intel Core CPUs designed between 2015 and 2020, the estimate, based on how many such CPUs were sold, is that 900 million desktop CPUs and 50–70 million server CPUs were vulnerable. Addressing these flaws required not only microcode patches but also broad defense-in-depth strategies and fixes for newer silicon, which resulted in improved security for everyone on the internet.
+
+I also explored the broader applicability of microarchitectural side channels through works such as [PathFinder](https://dl.acm.org/doi/10.1145/3620666.3651382), [Smack](https://dl.acm.org/doi/abs/10.1145/3676641.3716274), and [NVLeak](https://www.usenix.org/system/files/usenixsecurity23-wang-zixuan.pdf). These projects demonstrated that such attacks extend across multiple components of modern CPU and memory subsystem designs, underscoring the systemic nature of microarchitectural vulnerabilities. -->
+                        </main>
+    <footer>
+        &copy; 2025 Daniel Moghimi</a>
+    </footer>
+</body>
+</html>
+                
