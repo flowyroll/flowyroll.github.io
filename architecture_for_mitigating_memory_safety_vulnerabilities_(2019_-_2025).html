@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Daniel Moghimi &#8212; {title}</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+</head>
+<body>
+    <header>
+        <h1>Daniel Moghimi &nbsp;|&nbsp; Architecture For Mitigating Memory Safety Vulnerabilities (2019 - 2025)</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Research Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="publications.html">Publications</a>       
+            <a href="https://twitter.com/flowyroll"><i class="fa fa-twitter" style="font-size:23px"></i></a>
+            <a href="https://www.linkedin.com/in/flowyroll"><i class="fa fa-linkedin" style="font-size:23px"></i></a>
+            <a href="http://github.com/flowyroll"><i class="fa fa-github" style="font-size:23px"></i></a>
+            <a href="https://scholar.google.com/citations?user=OXLo0LMAAAAJ&amp;hl=en"><i class="fa ai ai-google-scholar-square" style="font-size:23px"></i></a>
+            <a href="https://www.youtube.com/playlist?list=PLdqUUPqbL3gRFOP5kUQHO4cPR5mBOj4XM&amp;hl=en"><i class="fa fa-youtube" style="font-size:23px"></i></a>
+            <a href="mailto:danielmm@google.com"><i class="fa fa-envelope" style="font-size:23px"></i></a>
+        </nav>
+    </header>
+    <main>
+                    <p>Between 2020 and 2026, I developed hardware and software architectures to mitigate memory safety exploits and subsequent data exposure. Despite the availability of memory-safe languages, slow adoption leaves systems vulnerable to persistent software exploits. Furthermore, modern microarchitectural optimizations have extended these threats to speculative execution such as speculative buffer overflows, which can bypass software-level protections. Addressing these vulnerabilities requires fundamental improvements across compilers, operating systems, and hardware abstractions.</p>
+<p><img alt="drawing" src="assets/sisa.png" title="Dealing with evil software." /></p>
+<p>While sandboxing is a vital defense, it remains imperfect. In-process fault isolation has gained traction for its low IPC and startup overhead, yet it remains susceptible to microarchitectural threats. In <a href="https://www.usenix.org/system/files/sec21-narayan.pdf">Swivel</a>, we analyzed how Spectre vulnerabilities compromise WebAssembly (WASM) and developed compiler-level mitigations to prevent data leakage. However, as noted in our extensive study in <a href="https://www.computer.org/csdl/proceedings-article/sp/2022/131600b517/1FlQz5KjQZ2">SoK: Practical Foundations for Spectre Defenses</a>, software-only solutions cannot realistically defend against the entire spectrum of speculative execution attacks. Consequently, in <a href="https://dl.acm.org/doi/10.1145/3582016.3582023">HFI</a>, we proposed a hardware-centric design to eliminate these vulnerabilities while simultaneously improving the efficiency of in-process sandboxing.</p>
+<p>At Google, I contributed to research efforts evaluating security instruction set architectures including <a href="https://arxiv.org/abs/2601.11786">ARM MTE (performance in practice)</a>, CHERI, and <a href="https://llvm.org/devmtg/2025-10/slides/technical_talks/garkinfel_yedidia.pdf">LFI</a> to achieve memory safety and efficient sandboxing for real-world workloads. As part of these initiatives, I supported university collaborations and mentored PhD students.</p>
+                        </main>
+    <footer>
+        &copy; 2025 Daniel Moghimi</a>
+    </footer>
+</body>
+</html>
+                
