@@ -144,6 +144,70 @@ img[alt=drawing] {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+/* Recent News & Highlights */
+.news-container {
+    margin: 1.75rem 0;
+    padding: 1.25rem 1.4rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.news-container h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+main .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+main .news-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.news-date {
+    flex: 0 0 72px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+}
+
+.news-content {
+    flex: 1;
+    color: #334155;
+}
+
+.news-content a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.news-content a:hover {
+    text-decoration: underline;
+}
+
 /* Press Badges */
 .press-badges {
     display: flex;
@@ -657,6 +721,30 @@ blockquote {
         color: #58a6ff;
     }
     
+    .news-container {
+        background: #161e27;
+        border-color: #2b3644;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .news-container h3 {
+        color: #f1f5f9;
+    }
+
+    .news-date {
+        color: #60a5fa;
+        background-color: #1e293b;
+        border-color: rgba(37, 99, 235, 0.3);
+    }
+
+    .news-content {
+        color: #cbd5e1;
+    }
+
+    .news-content a {
+        color: #58a6ff;
+    }
+
     .press-badge {
         background-color: #212c3a;
         color: #c9d1d9;
@@ -876,6 +964,20 @@ blockquote {
 
     img[alt=drawing] {
         max-width: 100%;
+    }
+
+    .news-container {
+        padding: 1rem 1.15rem;
+    }
+
+    main .news-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    .news-date {
+        flex: none;
     }
 
     .projects-grid {
