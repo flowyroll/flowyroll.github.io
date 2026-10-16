@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Moghimi &#8212; Downfall Performance Degradation 3 Years Later</title>
+    <meta name="description" content="It’s been almost three years since I reported the Downfall vulnerability (also called Gather Data Sampling) to Intel, and its mitigation is still hurting the...">
+    <link rel="canonical" href="https://moghimi.org/downfall_performance_degradation_3_years_later.html">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://moghimi.org/downfall_performance_degradation_3_years_later.html">
+    <meta property="og:title" content="Daniel Moghimi &#8212; Downfall Performance Degradation 3 Years Later">
+    <meta property="og:description" content="It’s been almost three years since I reported the Downfall vulnerability (also called Gather Data Sampling) to Intel, and its mitigation is still hurting the...">
+    <meta property="og:image" content="https://moghimi.org/assets/profile.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flowyroll">
+    <meta name="twitter:creator" content="@flowyroll">
+    <meta name="twitter:title" content="Daniel Moghimi &#8212; Downfall Performance Degradation 3 Years Later">
+    <meta name="twitter:description" content="It’s been almost three years since I reported the Downfall vulnerability (also called Gather Data Sampling) to Intel, and its mitigation is still hurting the...">
+    <meta name="twitter:image" content="https://moghimi.org/assets/profile.png">
+
     <link rel="stylesheet" href="css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -15,10 +35,10 @@
             <h1>Daniel Moghimi &nbsp;|&nbsp; Downfall Performance Degradation 3 Years Later</h1>
             <nav>
                 <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="projects.html">Research Projects</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="publications.html">Publications</a>
+                    <a href="index.html" class="">Home</a>
+                    <a href="projects.html" class="">Research Projects</a>
+                    <a href="blog.html" class="active">Blog</a>
+                    <a href="publications.html" class="">Publications</a>
                 </div>
                 <div class="nav-icons">
                     <a href="https://twitter.com/flowyroll" aria-label="Twitter / X"><i class="fa fa-twitter"></i></a>
@@ -40,11 +60,10 @@
 
 <p><strong>So what does the mitigation do, and why does it slow things down so much?</strong> Essentially, it severely degrades the <em>Gather</em> instruction. <em>Gather</em> (implemented as <code>(v)(vp)gather*</code> on x86) lets CPUs load multiple data elements in parallel. Table lookups are extremely common in many algorithms: compression/decompression, software cryptography, media encoding, and more.</p>
 <p>The Downfall fix effectively turns <em>Gather</em> into a serial operation: there’s no longer speculative, parallel data gathering. Imagine an instruction that was designed to efficiently perform 16 memory lookups in parallel&mdash;after the mitigation it performs them one-by-one because the mitigation implicitly serializes the <em>Gather</em> micro-operations under the hood.</p>
-<p>For some algorithms, that change makes a <em>Gather</em>-based implementation even slower than carefully optimized software table lookups. If <em>Gather</em> used to be faster than a software approach, the mitigation can invert that relationship: a precomputed or software-managed table lookup that used to be inferior can now outrun the hardware Gather. A software-managed table lookup can still runs in paralell and continues to benefit from speculative execution.</p>
-<p><strong>I strongly advise against disabling the <a href="https://downfall.page/">Downfall/GDS</a> mitigation.</strong> Unless a machine is completely air-gapped and used solely for local gaming or offline encoding, disabling the Downfall mitigation carries significant risk. This vulnerability is practically exploitable to leak large amounts of data, as I demonstrated this with live demo at <a href="https://www.youtube.com/watch?v=RiKas-0Vbk8">Usenex Security</a> and <a href="https://www.youtube.com/watch?v=JLHh_oViXl8">Blackhat 2023</a> two years ago. In cloud environments it can be used to exfiltrate data from other tenants. On a desktop connected to the Internet, an untrusted application (for example, from an app store) could leak credentials such as admin passwords, Kerberos to perform privilege escalation.</p>
-<p>Mitigations for similar vulnerabiliites have been disabled years after disclosure because engineers judged the performance cost unacceptable or such changes were made by mistake. In some of those cases, later work demonstrated that the unfixed vulnerabilities could indeed be weaponized to leak credentials. A recent example was demonstrated by Google colleagues which they <a href="https://bughunters.google.com/blog/6243730100977664/exploiting-retbleed-in-the-real-world">showed</a> how an unfixed <a href="https://comsec.ethz.ch/research/microarch/retbleed/">Retbleed vulnerability</a> (on AMD hardware) can be used to steal credentials in the Cloud.</p>
-<p><strong>Bottom line:</strong> The performance hit from <em>Gather</em> mitigation is significant, but disabling it only trades short-term speed for a catastrophic security risk. A better approach is to detect whether the mitigation is enabled and, if so, fall back to a software-optimized implementation that avoids Gather’s performance penalty.</p>
-    </main>
+<p>For some algorithms, that change makes a <em>Gather</em>-based implementation even slower than carefully optimized software table lookups. If <em>Gather</em> used to be faster than a software approach, the mitigation can invert that relationship: a precomputed or software-managed table lookup that used to be inferior can now outrun the hardware Gather. A software-managed table lookup can still run in parallel and continues to benefit from speculative execution.</p>
+<p><strong>I strongly advise against disabling the <a href="https://downfall.page/">Downfall/GDS</a> mitigation.</strong> Unless a machine is completely air-gapped and used solely for local gaming or offline encoding, disabling the Downfall mitigation carries significant risk. This vulnerability is practically exploitable to leak large amounts of data, as I demonstrated this with live demo at <a href="https://www.youtube.com/watch?v=RiKas-0Vbk8">USENIX Security</a> and <a href="https://www.youtube.com/watch?v=JLHh_oViXl8">Blackhat 2023</a> two years ago. In cloud environments it can be used to exfiltrate data from other tenants. On a desktop connected to the Internet, an untrusted application (for example, from an app store) could leak credentials such as admin passwords, Kerberos to perform privilege escalation.</p>
+<p>Mitigations for similar vulnerabilities have been disabled years after disclosure because engineers judged the performance cost unacceptable or such changes were made by mistake. In some of those cases, later work demonstrated that the unfixed vulnerabilities could indeed be weaponized to leak credentials. A recent example was demonstrated by Google colleagues which they <a href="https://bughunters.google.com/blog/6243730100977664/exploiting-retbleed-in-the-real-world">showed</a> how an unfixed <a href="https://comsec.ethz.ch/research/microarch/retbleed/">Retbleed vulnerability</a> (on AMD hardware) can be used to steal credentials in the Cloud.</p>
+<p><strong>Bottom line:</strong> The performance hit from <em>Gather</em> mitigation is significant, but disabling it only trades short-term speed for a catastrophic security risk. A better approach is to detect whether the mitigation is enabled and, if so, fall back to a software-optimized implementation that avoids Gather’s performance penalty.</p>    </main>
     <footer>
         <div class="footer-content">
             &copy; 2026 Daniel Moghimi

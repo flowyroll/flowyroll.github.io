@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="chipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34495e"/>
+      <stop offset="100%" stop-color="#1a252f"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498db"/>
+      <stop offset="100%" stop-color="#2980b9"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Chip -->
+  <rect x="10" y="10" width="44" height="44" rx="8" fill="url(#chipGrad)" stroke="#4a6572" stroke-width="1.5"/>
+  <!-- Top Pins -->
+  <rect x="18" y="4" width="4" height="6" rx="1" fill="#7f8c8d"/>
+  <rect x="30" y="4" width="4" height="6" rx="1" fill="#7f8c8d"/>
+  <rect x="42" y="4" width="4" height="6" rx="1" fill="#7f8c8d"/>
+  <!-- Bottom Pins -->
+  <rect x="18" y="54" width="4" height="6" rx="1" fill="#7f8c8d"/>
+  <rect x="30" y="54" width="4" height="6" rx="1" fill="#7f8c8d"/>
+  <rect x="42" y="54" width="4" height="6" rx="1" fill="#7f8c8d"/>
+  <!-- Left Pins -->
+  <rect x="4" y="18" width="6" height="4" rx="1" fill="#7f8c8d"/>
+  <rect x="4" y="30" width="6" height="4" rx="1" fill="#7f8c8d"/>
+  <rect x="4" y="42" width="6" height="4" rx="1" fill="#7f8c8d"/>
+  <!-- Right Pins -->
+  <rect x="54" y="18" width="6" height="4" rx="1" fill="#7f8c8d"/>
+  <rect x="54" y="30" width="6" height="4" rx="1" fill="#7f8c8d"/>
+  <rect x="54" y="42" width="6" height="4" rx="1" fill="#7f8c8d"/>
+  <!-- Center Shield / Monogram -->
+  <path d="M 32 18 L 44 24 V 34 C 44 41 38 46 32 48 C 26 46 20 41 20 34 V 24 Z" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Inner Keyhole / Circuit Symbol -->
+  <circle cx="32" cy="30" r="3" fill="#3498db"/>
+  <path d="M 30.5 31 L 29 39 H 35 L 33.5 31 Z" fill="#3498db"/>
+</svg>
