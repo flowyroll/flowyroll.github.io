@@ -5,7 +5,7 @@
     <link>https://moghimi.org/blog.html</link>
     <description>Research, microarchitectural vulnerabilities, and systems security.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Oct 2026 07:35:30 -0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 08:56:47 -0000</lastBuildDate>
     <atom:link href="https://moghimi.org/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Joint Security Review Of Intel TDX 1.5</title>
@@ -19,7 +19,7 @@
       <link>https://moghimi.org/supporting_rowhammer_research_to_protect_dram_ecosystem.html</link>
       <guid isPermaLink="true">https://moghimi.org/supporting_rowhammer_research_to_protect_dram_ecosystem.html</guid>
       <pubDate>Mon, 15 Sep 2025 00:00:00 -0000</pubDate>
-      <description>Rowhammer remains one of the most stubborn and persistent physical hardware vulnerabilities in modern Dynamic Random-Access Memory (DRAM). By repeatedly activating ("hammering") specific memory rows,...</description>
+      <description>Rowhammer remains one of the most stubborn and persistent physical hardware vulnerabilities in modern Dynamic Random-Access Memory (DRAM). By repeatedly activating (&quot;hammering&quot;) specific memory rows,...</description>
     </item>
     <item>
       <title>Downfall Performance Degradation 3 Years Later</title>
