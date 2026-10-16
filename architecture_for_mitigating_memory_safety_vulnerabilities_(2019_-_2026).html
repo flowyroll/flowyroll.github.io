@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Moghimi &#8212; Architecture For Mitigating Memory Safety Vulnerabilities (2019 - 2026)</title>
+    <meta name="description" content="Between 2019 and 2026, I developed hardware and software architectures to mitigate memory safety exploits and subsequent data exposure....">
+    <link rel="canonical" href="https://moghimi.org/architecture_for_mitigating_memory_safety_vulnerabilities_(2019_-_2026).html">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moghimi.org/architecture_for_mitigating_memory_safety_vulnerabilities_(2019_-_2026).html">
+    <meta property="og:title" content="Daniel Moghimi &#8212; Architecture For Mitigating Memory Safety Vulnerabilities (2019 - 2026)">
+    <meta property="og:description" content="Between 2019 and 2026, I developed hardware and software architectures to mitigate memory safety exploits and subsequent data exposure....">
+    <meta property="og:image" content="https://moghimi.org/assets/sisa.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flowyroll">
+    <meta name="twitter:creator" content="@flowyroll">
+    <meta name="twitter:title" content="Daniel Moghimi &#8212; Architecture For Mitigating Memory Safety Vulnerabilities (2019 - 2026)">
+    <meta name="twitter:description" content="Between 2019 and 2026, I developed hardware and software architectures to mitigate memory safety exploits and subsequent data exposure....">
+    <meta name="twitter:image" content="https://moghimi.org/assets/sisa.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Daniel Moghimi &nbsp;|&nbsp; Architecture For Mitigating Memory Safety Vulnerabilities (2019 - 2026)</h1>
+            <nav>
+                <div class="nav-links">
+                    <a href="index.html" class="">Home</a>
+                    <a href="projects.html" class="active">Research Projects</a>
+                    <a href="blog.html" class="">Blog</a>
+                    <a href="publications.html" class="">Publications</a>
+                </div>
+                <div class="nav-icons">
+                    <a href="https://twitter.com/flowyroll" aria-label="Twitter / X"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/flowyroll" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/flowyroll" aria-label="GitHub"><i class="fa fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=OXLo0LMAAAAJ&amp;hl=en" aria-label="Google Scholar"><i class="fa ai ai-google-scholar-square"></i></a>
+                    <a href="https://www.youtube.com/playlist?list=PLdqUUPqbL3gRFOP5kUQHO4cPR5mBOj4XM&amp;hl=en" aria-label="YouTube"><i class="fa fa-youtube"></i></a>
+                    <a href="mailto:danielmm@google.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+<p class="project-back-link"><a href="projects.html">&larr; Back to Research Projects</a></p>
+<p class="project-timeline-header"><em>2019 – 2026</em></p>
+<p>Between 2019 and 2026, I developed hardware and software architectures to mitigate memory safety exploits and subsequent data exposure. Despite the availability of memory-safe languages, slow adoption leaves systems vulnerable to persistent software exploits. Furthermore, modern microarchitectural optimizations have extended these threats to speculative execution such as speculative buffer overflows, which can bypass software-level protections. Addressing these vulnerabilities requires fundamental improvements across compilers, operating systems, and hardware abstractions.</p>
+<p><img alt="drawing" src="assets/sisa.png" title="Dealing with evil software." /></p>
+<p>While sandboxing is a vital defense, it remains imperfect. In-process fault isolation has gained traction for its low IPC and startup overhead, yet it remains susceptible to microarchitectural threats. In <a href="https://www.usenix.org/system/files/sec21-narayan.pdf">Swivel</a>, we analyzed how Spectre vulnerabilities compromise WebAssembly (WASM) and developed compiler-level mitigations to prevent data leakage. However, as noted in our extensive study in <a href="https://www.computer.org/csdl/proceedings-article/sp/2022/131600b517/1FlQz5KjQZ2">SoK: Practical Foundations for Spectre Defenses</a>, software-only solutions cannot realistically defend against the entire spectrum of speculative execution attacks. Consequently, in <a href="https://dl.acm.org/doi/10.1145/3582016.3582023">HFI</a>, we proposed a hardware-centric design to eliminate these vulnerabilities while simultaneously improving the efficiency of in-process sandboxing.</p>
+<p>At Google, I contributed to research efforts evaluating security instruction set architectures including <a href="https://arxiv.org/abs/2601.11786">ARM MTE (performance in practice)</a>, <a href="https://arxiv.org/abs/2609.36731">CHERI</a>, and <a href="https://llvm.org/devmtg/2025-10/slides/technical_talks/garkinfel_yedidia.pdf">LFI</a> to achieve memory safety and efficient sandboxing for real-world workloads. In our recent work on <a href="https://arxiv.org/abs/2609.36731">Efficient Linkage-Based Compartmentalization on CHERI</a> (ACM CCS 2026), we demonstrated how capability-based hardware primitives can achieve fine-grained, low-overhead software compartmentalization without sacrificing language features. As part of these initiatives, I supported university collaborations and mentored PhD students.</p>
+<p class="project-back-link"><a href="projects.html">&larr; Back to Research Projects</a></p>    </main>
+    <footer>
+        <div class="footer-content">
+            &copy; 2026 Daniel Moghimi
+        </div>
+    </footer>
+</body>
+</html>

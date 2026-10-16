@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Moghimi &#8212; Hardening Confidential Compute For Private AI (2023 - Active)</title>
+    <meta name="description" content="Since 2023, I have investigated the architectural security and hardware isolation of modern confidential virtual machines (CVMs) for...">
+    <link rel="canonical" href="https://moghimi.org/hardening_confidential_compute_for_private_AI_(2023_-_active).html">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moghimi.org/hardening_confidential_compute_for_private_AI_(2023_-_active).html">
+    <meta property="og:title" content="Daniel Moghimi &#8212; Hardening Confidential Compute For Private AI (2023 - Active)">
+    <meta property="og:description" content="Since 2023, I have investigated the architectural security and hardware isolation of modern confidential virtual machines (CVMs) for...">
+    <meta property="og:image" content="https://moghimi.org/assets/confidential_ai.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flowyroll">
+    <meta name="twitter:creator" content="@flowyroll">
+    <meta name="twitter:title" content="Daniel Moghimi &#8212; Hardening Confidential Compute For Private AI (2023 - Active)">
+    <meta name="twitter:description" content="Since 2023, I have investigated the architectural security and hardware isolation of modern confidential virtual machines (CVMs) for...">
+    <meta name="twitter:image" content="https://moghimi.org/assets/confidential_ai.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Daniel Moghimi &nbsp;|&nbsp; Hardening Confidential Compute For Private AI (2023 - Active)</h1>
+            <nav>
+                <div class="nav-links">
+                    <a href="index.html" class="">Home</a>
+                    <a href="projects.html" class="active">Research Projects</a>
+                    <a href="blog.html" class="">Blog</a>
+                    <a href="publications.html" class="">Publications</a>
+                </div>
+                <div class="nav-icons">
+                    <a href="https://twitter.com/flowyroll" aria-label="Twitter / X"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/flowyroll" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/flowyroll" aria-label="GitHub"><i class="fa fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=OXLo0LMAAAAJ&amp;hl=en" aria-label="Google Scholar"><i class="fa ai ai-google-scholar-square"></i></a>
+                    <a href="https://www.youtube.com/playlist?list=PLdqUUPqbL3gRFOP5kUQHO4cPR5mBOj4XM&amp;hl=en" aria-label="YouTube"><i class="fa fa-youtube"></i></a>
+                    <a href="mailto:danielmm@google.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+<p class="project-back-link"><a href="projects.html">&larr; Back to Research Projects</a></p>
+<p class="project-timeline-header"><em>2023 – Active</em></p>
+<p>Since 2023, I have investigated the architectural security and hardware isolation of modern confidential virtual machines (CVMs) for high-assurance private AI in the cloud. As machine learning models and large language models (LLMs) are deployed to process sensitive user prompts, medical records, and proprietary model weights, traditional multi-tenant cloud isolation is insufficient. Hardware trusted execution environments (TEEs)—notably AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP), Intel Trust Domain Extensions (TDX), and Arm Confidential Compute Architecture (Arm CCA)—serve as the foundational root of trust to shield confidential workloads from untrusted hypervisors, cloud operators, and co-located tenants.</p>
+<p><img alt="drawing" src="assets/confidential_ai.png" title="Hardening Confidential Compute for Private AI." /></p>
+<p>While hardware-based memory encryption and integrity protections safeguard physical memory, microarchitectural side channels and execution state transitions present subtle vectors for data exposure. In <a href="https://www.ndss-symposium.org/">SNPeek</a> (NDSS 2026), we analyzed side-channel leakage across AMD SEV-SNP confidential VMs, showing how memory access patterns and architectural traces can leak private inference inputs to a malicious host. Concurrently, in <a href="https://tdxray.cpusec.org/">TDXRay</a> (IEEE S&amp;P 2026), we developed a comprehensive side-channel analysis framework for Intel TDX under realistic cloud environments, quantifying microarchitectural leakage across real-world workloads and establishing rigorous testing methodologies for confidential virtualization.</p>
+<p>Beyond x86 architectures, our ongoing research investigates the emerging Arm Confidential Compute Architecture (Arm CCA) and its Realm Management Extension (RME). We evaluate the security guarantees of Arm Realms under adversarial hypervisor models, scrutinizing architectural state transitions, interrupt virtualization, and microarchitectural side channels on next-generation Arm server silicon.</p>
+<p>Securing confidential compute also demands rigorous verification of silicon implementations, firmware, and virtualization features. In 2026, I co-led a <a href="a_joint_security_review_of_Intel_TDX_1.5.html">Joint Security Review of Intel TDX 1.5</a> between Google and Intel, publishing an in-depth <a href="https://eccc.weizmann.ac.il/report/2026/013/">Technical Report</a> that evaluated confidential VM live migration, CPU state transitions, and hypervisor interaction boundaries. Furthermore, in <a href="https://ddropattack.eu/">DDRop</a> (ACM CCS 2026), we investigated the physical integrity boundaries of confidential VMs, demonstrating active memory interposer attacks on DDR5 buses. At Google, this ongoing research across AMD SEV-SNP, Intel TDX, and Arm CCA directly drives architectural hardening, platform attestation mechanisms, and defense-in-depth strategies to ensure that cloud-based private AI achieves cryptographic-level confidentiality and integrity in production.</p>
+<p class="project-back-link"><a href="projects.html">&larr; Back to Research Projects</a></p>    </main>
+    <footer>
+        <div class="footer-content">
+            &copy; 2026 Daniel Moghimi
+        </div>
+    </footer>
+</body>
+</html>

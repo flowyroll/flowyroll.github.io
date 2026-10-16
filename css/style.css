@@ -22,7 +22,7 @@ header {
 }
 
 .header-content {
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
     padding: 0 1.25rem;
 }
@@ -87,7 +87,7 @@ nav {
 main {
     flex: 1;
     padding: 2rem 1.25rem;
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
     width: 100%;
 }
@@ -119,7 +119,7 @@ footer {
 }
 
 .footer-content {
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
     padding: 0 1.25rem;
 }
@@ -458,8 +458,8 @@ main .news-list li {
 /* Projects Grid & Cards */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.75rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
     margin: 0.5rem 0 2rem 0;
 }
 
@@ -476,7 +476,7 @@ main .news-list li {
 
 .project-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     border-color: #cbd5e1;
 }
 
@@ -504,7 +504,7 @@ main .news-list li {
 }
 
 .project-card-body {
-    padding: 1.25rem;
+    padding: 0.95rem 1rem 1.15rem 1rem;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -513,22 +513,28 @@ main .news-list li {
 .project-meta {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .project-timeline {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 600;
     color: #475569;
     background-color: #f1f5f9;
-    padding: 0.15rem 0.55rem;
+    padding: 0.1rem 0.45rem;
     border-radius: 4px;
     letter-spacing: 0.02em;
 }
 
+.project-timeline.active-timeline {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
 .project-title {
-    margin: 0 0 0.65rem 0;
-    font-size: 1.15rem;
+    margin: 0 0 0.5rem 0;
+    font-size: 0.98rem;
     font-weight: 600;
     line-height: 1.35;
 }
@@ -546,17 +552,17 @@ main .news-list li {
 
 .project-desc {
     color: #475569;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    margin: 0 0 1.25rem 0;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
     flex: 1;
 }
 
 .project-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.88rem;
+    gap: 0.3rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: #2563eb;
     text-decoration: none;
@@ -865,6 +871,12 @@ blockquote {
         color: #94a3b8;
         border: 1px solid #313e52;
     }
+
+    .project-timeline.active-timeline {
+        background-color: #064e3b;
+        color: #6ee7b7;
+        border-color: #047857;
+    }
     
     .project-title a {
         color: #f1f5f9;
@@ -980,12 +992,21 @@ blockquote {
         flex: none;
     }
 
+    .blog-card {
+        padding: 1rem 1.15rem;
+    }
+}
+
+@media (max-width: 780px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 520px) {
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 1.25rem;
-    }
-
-    .blog-card {
-        padding: 1rem 1.15rem;
     }
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Moghimi &#8212; Rowhammer Attacks And Defenses For DRAM Security (2018 - 2026)</title>
+    <meta name="description" content="Between 2018 and 2026, I investigated the physical and architectural foundations of Rowhammer vulnerabilities in dynamic random-access...">
+    <link rel="canonical" href="https://moghimi.org/rowhammer_attacks_and_defenses_for_DRAM_security_(2018_-_2026).html">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moghimi.org/rowhammer_attacks_and_defenses_for_DRAM_security_(2018_-_2026).html">
+    <meta property="og:title" content="Daniel Moghimi &#8212; Rowhammer Attacks And Defenses For DRAM Security (2018 - 2026)">
+    <meta property="og:description" content="Between 2018 and 2026, I investigated the physical and architectural foundations of Rowhammer vulnerabilities in dynamic random-access...">
+    <meta property="og:image" content="https://moghimi.org/assets/rowhammer.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flowyroll">
+    <meta name="twitter:creator" content="@flowyroll">
+    <meta name="twitter:title" content="Daniel Moghimi &#8212; Rowhammer Attacks And Defenses For DRAM Security (2018 - 2026)">
+    <meta name="twitter:description" content="Between 2018 and 2026, I investigated the physical and architectural foundations of Rowhammer vulnerabilities in dynamic random-access...">
+    <meta name="twitter:image" content="https://moghimi.org/assets/rowhammer.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Daniel Moghimi &nbsp;|&nbsp; Rowhammer Attacks And Defenses For DRAM Security (2018 - 2026)</h1>
+            <nav>
+                <div class="nav-links">
+                    <a href="index.html" class="">Home</a>
+                    <a href="projects.html" class="active">Research Projects</a>
+                    <a href="blog.html" class="">Blog</a>
+                    <a href="publications.html" class="">Publications</a>
+                </div>
+                <div class="nav-icons">
+                    <a href="https://twitter.com/flowyroll" aria-label="Twitter / X"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/flowyroll" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/flowyroll" aria-label="GitHub"><i class="fa fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=OXLo0LMAAAAJ&amp;hl=en" aria-label="Google Scholar"><i class="fa ai ai-google-scholar-square"></i></a>
+                    <a href="https://www.youtube.com/playlist?list=PLdqUUPqbL3gRFOP5kUQHO4cPR5mBOj4XM&amp;hl=en" aria-label="YouTube"><i class="fa fa-youtube"></i></a>
+                    <a href="mailto:danielmm@google.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+<p class="project-back-link"><a href="projects.html">&larr; Back to Research Projects</a></p>
+<p class="project-timeline-header"><em>2018 – 2026</em></p>
+<p>Between 2018 and 2026, I investigated the physical and architectural foundations of Rowhammer vulnerabilities in dynamic random-access memory (DRAM). As semiconductor manufacturing processes scaled down to nanoscale dimensions, DRAM capacitors became increasingly tightly packed, enabling electromagnetic coupling between adjacent memory rows. By repeatedly activating (hammering) aggressive rows of memory, adversaries can induce electrical disturbance and cause bits to flip in victim rows without ever accessing them. This undermines the hardware root of trust, breaking fundamental operating system abstractions, hypervisors, and cryptographic isolations.</p>
+<p><img alt="drawing" src="assets/rowhammer.png" title="Smashing DRAM memory cells with Rowhammer." /></p>
+<p>My early work focused on uncovering microarchitectural primitives that dramatically enhance the feasibility and speed of Rowhammer attacks. In <a href="https://spoilerattack.com/">SPOILER</a> (USENIX Security 2019, CVE-2019-0162), we discovered that speculative load-store forwarding logic in modern CPUs leaks information about physical memory layout to unprivileged user space. By exploiting this leakage, SPOILER enabled rapid discovery of contiguous physical pages, accelerating Rowhammer attacks by orders of magnitude—even from restricted sandboxes like JavaScript. Further expanding the attack surface beyond traditional CPUs, we introduced <a href="https://dl.acm.org/doi/10.1145/3358189">JackHammer</a> (ACM TECS 2019), demonstrating that untrusted FPGA accelerators sharing the coherent memory bus with CPUs can trigger devastating Rowhammer bit flips while bypassing conventional CPU-side monitoring.</p>
+<p>As memory manufacturers introduced hardware mitigations such as Target Row Refresh (TRR) and on-die error correction (ODECC), Rowhammer defenses often relied on security through obscurity. To address this, we developed <a href="https://dramsec.ethz.ch/papers/soothsayer-final.pdf">SoothSayer</a> (DRAMSec 2024), demonstrating how to bypass proposed hardware defenses like DSAC by predicting counter replacements. More recently, in <a href="https://comsec.ethz.ch/research/rowhammer/phoenix/">Phoenix</a> (IEEE S&amp;P 2026), we demonstrated that DDR5 memory modules equipped with on-die ECC remain vulnerable to Rowhammer via self-correcting synchronization patterns. At Google, I actively advocate for open, verifiable hardware defenses and <a href="supporting_rowhammer_research_to_protect_dram_ecosystem.html">support Rowhammer research to protect the DRAM ecosystem</a> through academic partnerships and vulnerability disclosure.</p>
+<p class="project-back-link"><a href="projects.html">&larr; Back to Research Projects</a></p>    </main>
+    <footer>
+        <div class="footer-content">
+            &copy; 2026 Daniel Moghimi
+        </div>
+    </footer>
+</body>
+</html>
