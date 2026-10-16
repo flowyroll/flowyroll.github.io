@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Moghimi &#8212; Downfall And Zenbleed: Googlers Helping Secure The Ecosystem</title>
-    <meta name="description" content="Link to Downfall and Zenbleed: Googlers helping secure the ecosystem (Google Security Blog)">
+    <meta name="description" content="Co-authored on the Google Online Security Blog, this post details the coordinated disclosure, ecosystem impact, and collaborative industry remediation of two critical processor vulnerabilities...">
     <link rel="canonical" href="https://moghimi.org/downfall_and_zenbleed:_googlers_helping_secure_the_ecosystem.html">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://moghimi.org/downfall_and_zenbleed:_googlers_helping_secure_the_ecosystem.html">
     <meta property="og:title" content="Daniel Moghimi &#8212; Downfall And Zenbleed: Googlers Helping Secure The Ecosystem">
-    <meta property="og:description" content="Link to Downfall and Zenbleed: Googlers helping secure the ecosystem (Google Security Blog)">
+    <meta property="og:description" content="Co-authored on the Google Online Security Blog, this post details the coordinated disclosure, ecosystem impact, and collaborative industry remediation of two critical processor vulnerabilities...">
     <meta property="og:image" content="https://moghimi.org/assets/profile.png">
 
     <!-- Twitter -->
@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@flowyroll">
     <meta name="twitter:creator" content="@flowyroll">
     <meta name="twitter:title" content="Daniel Moghimi &#8212; Downfall And Zenbleed: Googlers Helping Secure The Ecosystem">
-    <meta name="twitter:description" content="Link to Downfall and Zenbleed: Googlers helping secure the ecosystem (Google Security Blog)">
+    <meta name="twitter:description" content="Co-authored on the Google Online Security Blog, this post details the coordinated disclosure, ecosystem impact, and collaborative industry remediation of two critical processor vulnerabilities...">
     <meta name="twitter:image" content="https://moghimi.org/assets/profile.png">
 
     <link rel="stylesheet" href="css/style.css">
@@ -53,7 +53,18 @@
     </header>
     <main>
 <p><em>August 08, 2023</em></p>
-<p>Link to <a href="https://security.googleblog.com/2023/08/downfall-and-zenbleed-googlers-helping.html">Downfall and Zenbleed: Googlers helping secure the ecosystem</a> (Google Security Blog)</p>    </main>
+<p>Co-authored on the <strong>Google Online Security Blog</strong>, this post details the coordinated disclosure, ecosystem impact, and collaborative industry remediation of two critical processor vulnerabilities uncovered by Google security researchers: <strong>Downfall</strong> (CVE-2022-40982, discovered by Daniel Moghimi) and <strong>Zenbleed</strong> (CVE-2023-20593, discovered by Tavis Ormandy).</p>
+<h3>Key Takeaways from the Disclosure</h3>
+<ul>
+<li><strong>Downfall (CVE-2022-40982):</strong> Stems from memory optimization features in Intel Core processors (6th through 11th generations) associated with the SIMD vectorized <code>Gather</code> instruction (<code>AVX2</code> and <code>AVX-512</code>). The vulnerability allows unprivileged local attackers, untrusted web applets, or co-located virtual machines to extract internal hardware register contents—stealing encryption keys, credentials, and confidential user data across security boundaries.</li>
+<li><strong>Zenbleed (CVE-2023-20593):</strong> Affects AMD Zen 2 microarchitectures, where speculative execution interacting with register allocation logic could lead to cross-process floating-point and vector register leakage at throughputs of up to 30 kB/s per core.</li>
+<li><strong>Complex Optimization vs. Security Boundaries:</strong> Both vulnerabilities highlight how modern performance optimizations (such as speculative execution, simultaneous multithreading, and aggressive memory gathering) can blur software isolation boundaries.</li>
+<li><strong>Coordinated Cross-Industry Defense:</strong> Through coordinated disclosure, Google researchers worked alongside Intel, AMD, cloud service providers, and Linux distribution maintainers to develop, test, and deploy firmware updates and microcode mitigations prior to public disclosure, protecting billions of personal computers and cloud servers worldwide.</li>
+</ul>
+<hr />
+<p>📖 <strong>Read the full announcement on the Google Security Blog:</strong><br />
+<a href="https://security.googleblog.com/2023/08/downfall-and-zenbleed-googlers-helping.html">Downfall and Zenbleed: Googlers helping secure the ecosystem</a><br />
+🌐 <strong>Project Website:</strong> <a href="https://downfall.page/">Downfall Attacks (downfall.page)</a></p>    </main>
     <footer>
         <div class="footer-content">
             &copy; 2026 Daniel Moghimi

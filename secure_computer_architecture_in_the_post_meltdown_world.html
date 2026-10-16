@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Moghimi &#8212; Secure Computer Architecture In The Post Meltdown World</title>
-    <meta name="description" content="Link to Secure Computer Architecture in the Post-Meltdown World: A Long Road Ahead (ACM SIGARCH)">
+    <meta name="description" content="Published on the ACM SIGARCH Computer Architecture Today blog, this article examines the lasting paradigm shift in computer architecture following the disclosure of Meltdown, Spectre, and the...">
     <link rel="canonical" href="https://moghimi.org/secure_computer_architecture_in_the_post_meltdown_world.html">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://moghimi.org/secure_computer_architecture_in_the_post_meltdown_world.html">
     <meta property="og:title" content="Daniel Moghimi &#8212; Secure Computer Architecture In The Post Meltdown World">
-    <meta property="og:description" content="Link to Secure Computer Architecture in the Post-Meltdown World: A Long Road Ahead (ACM SIGARCH)">
+    <meta property="og:description" content="Published on the ACM SIGARCH Computer Architecture Today blog, this article examines the lasting paradigm shift in computer architecture following the disclosure of Meltdown, Spectre, and the...">
     <meta property="og:image" content="https://moghimi.org/assets/profile.png">
 
     <!-- Twitter -->
@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@flowyroll">
     <meta name="twitter:creator" content="@flowyroll">
     <meta name="twitter:title" content="Daniel Moghimi &#8212; Secure Computer Architecture In The Post Meltdown World">
-    <meta name="twitter:description" content="Link to Secure Computer Architecture in the Post-Meltdown World: A Long Road Ahead (ACM SIGARCH)">
+    <meta name="twitter:description" content="Published on the ACM SIGARCH Computer Architecture Today blog, this article examines the lasting paradigm shift in computer architecture following the disclosure of Meltdown, Spectre, and the...">
     <meta name="twitter:image" content="https://moghimi.org/assets/profile.png">
 
     <link rel="stylesheet" href="css/style.css">
@@ -53,7 +53,17 @@
     </header>
     <main>
 <p><em>September 26, 2024</em></p>
-<p>Link to <a href="https://www.sigarch.org/secure-computer-architecture-in-the-post-meltdown-world-a-long-road-ahead/">Secure Computer Architecture in the Post-Meltdown World: A Long Road Ahead</a> (ACM SIGARCH)</p>    </main>
+<p>Published on the <strong>ACM SIGARCH Computer Architecture Today</strong> blog, this article examines the lasting paradigm shift in computer architecture following the disclosure of Meltdown, Spectre, and the subsequent waves of microarchitectural attacks.</p>
+<h3>Key Themes &amp; Architectural Takeaways</h3>
+<ul>
+<li><strong>The Illusion of Architectural Isolation:</strong> For decades, computer architects designed processors under the core premise that the Instruction Set Architecture (ISA) served as a strict security and correctness contract. Transient execution proved that performance optimizations—including out-of-order execution, speculation, and shared microarchitectural structures—leak sensitive state and render software-level isolation boundaries fragile.</li>
+<li><strong>The High Cost of Reactive Mitigations:</strong> Post-hoc software workarounds and microcode patches frequently trade substantial performance for security. Disabling SMT, inserting speculative barriers, and serializing critical vector instructions (as with the Gather mitigation in Downfall) impose lasting overheads on real-world workloads.</li>
+<li><strong>Quantifying Hardware Vulnerability Severity:</strong> Accurately measuring the real-world impact of silicon flaws remains deeply complex because exploitability depends on nuanced cross-layer interactions between compilers, operating systems, hypervisors, and physical silicon.</li>
+<li><strong>Rethinking Security from First Principles:</strong> Securing the future of high-performance computing requires abandoning ad-hoc patching in favor of principled hardware designs: formal microarchitectural contracts, verifiable hardware primitives, and strict physical and gate-level isolation (such as hardware-assisted fault isolation and core partitioning) for multi-tenant cloud infrastructure.</li>
+</ul>
+<hr />
+<p>📖 <strong>Read the full essay on ACM SIGARCH:</strong><br />
+<a href="https://www.sigarch.org/secure-computer-architecture-in-the-post-meltdown-world-a-long-road-ahead/">Secure Computer Architecture in the Post-Meltdown World: A Long Road Ahead</a></p>    </main>
     <footer>
         <div class="footer-content">
             &copy; 2026 Daniel Moghimi

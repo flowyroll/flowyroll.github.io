@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Moghimi &#8212; Privileged-adversary Side-channel Analysis Of SGX Enclaves (2016 - 2020)</title>
-    <meta name="description" content="From 2016 to 2020, I researched software-based side-channel analysis tools for Intel Software Guard Extensions (SGX), one of the first widely deployed...">
+    <meta name="description" content="From 2016 to 2020, I researched software-based side-channel analysis tools for Intel Software Guard Extensions (SGX), one of the first widely deployed commercial trusted execution...">
     <link rel="canonical" href="https://moghimi.org/privileged-adversary_side-channel_analysis_of_SGX_enclaves_(2016_-_2020).html">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
@@ -13,16 +13,16 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://moghimi.org/privileged-adversary_side-channel_analysis_of_SGX_enclaves_(2016_-_2020).html">
     <meta property="og:title" content="Daniel Moghimi &#8212; Privileged-adversary Side-channel Analysis Of SGX Enclaves (2016 - 2020)">
-    <meta property="og:description" content="From 2016 to 2020, I researched software-based side-channel analysis tools for Intel Software Guard Extensions (SGX), one of the first widely deployed...">
-    <meta property="og:image" content="https://moghimi.org/assets/ring0sgx.png "Ring0 attacks SGX enclave."">
+    <meta property="og:description" content="From 2016 to 2020, I researched software-based side-channel analysis tools for Intel Software Guard Extensions (SGX), one of the first widely deployed commercial trusted execution...">
+    <meta property="og:image" content="https://moghimi.org/assets/ring0sgx.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@flowyroll">
     <meta name="twitter:creator" content="@flowyroll">
     <meta name="twitter:title" content="Daniel Moghimi &#8212; Privileged-adversary Side-channel Analysis Of SGX Enclaves (2016 - 2020)">
-    <meta name="twitter:description" content="From 2016 to 2020, I researched software-based side-channel analysis tools for Intel Software Guard Extensions (SGX), one of the first widely deployed...">
-    <meta name="twitter:image" content="https://moghimi.org/assets/ring0sgx.png "Ring0 attacks SGX enclave."">
+    <meta name="twitter:description" content="From 2016 to 2020, I researched software-based side-channel analysis tools for Intel Software Guard Extensions (SGX), one of the first widely deployed commercial trusted execution...">
+    <meta name="twitter:image" content="https://moghimi.org/assets/ring0sgx.png">
 
     <link rel="stylesheet" href="css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -52,11 +52,14 @@
         </div>
     </header>
     <main>
+<p class="project-back-link"><a href="projects.html">&larr; Back to Research Projects</a></p>
+<p class="project-timeline-header"><em>2016 – 2020</em></p>
 <p>From 2016 to 2020, I researched software-based side-channel analysis tools for Intel <a href="https://www.intel.com/content/www/us/en/products/docs/accelerator-engines/software-guard-extensions.html">Software Guard Extensions (SGX)</a>, one of the first widely deployed commercial trusted execution environments (TEEs). Intel SGX introduced a new threat model where even privileged software (e.g., a compromised operating system or hypervisor) is considered untrusted. While designed to protect sensitive user data, this model also exposed SGX to powerful software-based side-channel attacks, most notably cache attacks.</p>
 <p><img alt="drawing" src="assets/ring0sgx.png" title="Ring0 attacks SGX enclave." /></p>
 <p>I developed <a href="https://www.iacr.org/cryptodb/data/paper.php?pubkey=28943">CacheZoom</a>, one of the first privileged-adversary cache side-channel attacks on Intel SGX. CacheZoom exploited timer interrupts to amplify side-channel leakage, enabling highly precise attacks. Building on this work, we extended the analysis to cryptographic implementations deployed inside SGX for remote attestation. By combining CacheZoom with lattice-based cryptanalysis, we demonstrated the first break of SGX’s remote attestation mechanism, called <a href="https://tches.iacr.org/index.php/TCHES/article/view/879">CacheQuote</a>.</p>
 <p>Our work emphasized the importance of constant-time cryptography as the de facto mitigation strategy for TEEs. However, we also showed that constant-time programming is difficult to achieve in practice, and that an advanced privileged-adversary attacks (<a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi-copycat">CopyCat</a>) can still undermine a wide range of cryptographic implementations.</p>
-<p>This research influenced both academia and industry. A <a href="https://dl.acm.org/doi/10.1145/3319535.3354197">similar attack</a> was developed on ARM TrustZone. It motivated Intel and cryptographic library maintainers to adopt <a href="https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/secure-coding/mitigate-timing-side-channel-crypto-implementation.html">standardized constant-time</a> implementations and inspired the development of <a href="https://www.usenix.org/conference/usenixsecurity23/presentation/constable">AEX-Notify</a>, an architectural defense against interrupt-driven side channels. Similar mitigations are now employed in Intel TDX confidential VMs that are used extensively for private inference and analytic, which inherit SGX’s threat model. </p>    </main>
+<p>This research influenced both academia and industry. A <a href="https://dl.acm.org/doi/10.1145/3319535.3354197">similar attack</a> was developed on ARM TrustZone. It motivated Intel and cryptographic library maintainers to adopt <a href="https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/secure-coding/mitigate-timing-side-channel-crypto-implementation.html">standardized constant-time</a> implementations and inspired the development of <a href="https://www.usenix.org/conference/usenixsecurity23/presentation/constable">AEX-Notify</a>, an architectural defense against interrupt-driven side channels. Similar mitigations are now employed in Intel TDX confidential VMs that are used extensively for private inference and analytic, which inherit SGX’s threat model. </p>
+<p class="project-back-link"><a href="projects.html">&larr; Back to Research Projects</a></p>    </main>
     <footer>
         <div class="footer-content">
             &copy; 2026 Daniel Moghimi

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Moghimi &#8212; A Joint Security Review Of Intel TDX 1.5</title>
-    <meta name="description" content="Link to Strengthening the Foundation: A Joint Security Review of Intel TDX 1.5 (Google Bug Hunters)">
+    <meta name="description" content="Google Cloud Security and Intel conducted a five-month joint security assessment of Intel Trust Domain Extensions (TDX) 1.5, focusing specifically on advanced new capabilities for confidential...">
     <link rel="canonical" href="https://moghimi.org/a_joint_security_review_of_Intel_TDX_1.5.html">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://moghimi.org/a_joint_security_review_of_Intel_TDX_1.5.html">
     <meta property="og:title" content="Daniel Moghimi &#8212; A Joint Security Review Of Intel TDX 1.5">
-    <meta property="og:description" content="Link to Strengthening the Foundation: A Joint Security Review of Intel TDX 1.5 (Google Bug Hunters)">
+    <meta property="og:description" content="Google Cloud Security and Intel conducted a five-month joint security assessment of Intel Trust Domain Extensions (TDX) 1.5, focusing specifically on advanced new capabilities for confidential...">
     <meta property="og:image" content="https://moghimi.org/assets/profile.png">
 
     <!-- Twitter -->
@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@flowyroll">
     <meta name="twitter:creator" content="@flowyroll">
     <meta name="twitter:title" content="Daniel Moghimi &#8212; A Joint Security Review Of Intel TDX 1.5">
-    <meta name="twitter:description" content="Link to Strengthening the Foundation: A Joint Security Review of Intel TDX 1.5 (Google Bug Hunters)">
+    <meta name="twitter:description" content="Google Cloud Security and Intel conducted a five-month joint security assessment of Intel Trust Domain Extensions (TDX) 1.5, focusing specifically on advanced new capabilities for confidential...">
     <meta name="twitter:image" content="https://moghimi.org/assets/profile.png">
 
     <link rel="stylesheet" href="css/style.css">
@@ -53,7 +53,19 @@
     </header>
     <main>
 <p><em>February 10, 2026</em></p>
-<p>Link to <a href="https://bughunters.google.com/blog/a-joint-security-review-of-intel-tdx-15">Strengthening the Foundation: A Joint Security Review of Intel TDX 1.5</a> (Google Bug Hunters)</p>    </main>
+<p>Google Cloud Security and Intel conducted a five-month joint security assessment of <strong>Intel Trust Domain Extensions (TDX) 1.5</strong>, focusing specifically on advanced new capabilities for confidential virtual machines: <strong>Live Migration</strong> (relocating encrypted confidential VMs between physical host servers without exposing cryptographic keys to the host hypervisor) and <strong>TD Partitioning</strong> (enabling nested virtualization within Trust Domains).</p>
+<h3>Key Highlights &amp; Findings</h3>
+<ul>
+<li><strong>Vulnerabilities Uncovered:</strong> The review identified <strong>five security vulnerabilities</strong> and approximately 35 architectural edge cases, specification gaps, and hardening opportunities. The most severe flaw could have enabled a malicious Virtual Machine Monitor (VMM / hypervisor) to completely undermine the security guarantees of a Trust Domain.</li>
+<li><strong>Confidential Memory &amp; Speculative Leakage:</strong> Additional issues included potential confidential memory leakage from the Intel TDX Module and speculative execution side-channel vectors in guest communication handlers.</li>
+<li><strong>Hands-on Silicon &amp; Novel Tooling:</strong> Unlike earlier design-only reviews, the team executed attacks directly on early TDX-enabled hardware nodes, developing custom proof-of-concept testing harnesses (the <em>TDXplore Toolkit</em>).</li>
+<li><strong>AI-Assisted Security Analysis:</strong> The assessment leveraged Gemini for automated code analysis and NotebookLM to cross-reference and verify intricate multi-thousand-page architectural specifications.</li>
+<li><strong>Remediation:</strong> Intel fully addressed and mitigated all identified vulnerabilities in updated TDX 1.5 microcode and firmware releases prior to production cloud rollout.</li>
+</ul>
+<hr />
+<p>📖 <strong>Read the full report on Google Bug Hunters:</strong><br />
+<a href="https://bughunters.google.com/blog/a-joint-security-review-of-intel-tdx-15">Strengthening the Foundation: A Joint Security Review of Intel TDX 1.5</a><br />
+📄 <strong>Full Technical Paper:</strong> <a href="https://services.google.com/fh/files/misc/intel_tdx_1.5-full_report.pdf">Security Assessment of Intel TDX with Support for Live Migration (PDF)</a></p>    </main>
     <footer>
         <div class="footer-content">
             &copy; 2026 Daniel Moghimi

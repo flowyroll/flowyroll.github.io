@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Moghimi &#8212; Supporting Rowhammer Research To Protect DRAM Ecosystem</title>
-    <meta name="description" content="Link to Supporting Rowhammer research to protect the DRAM ecosystem (Google Security Blog)">
+    <meta name="description" content="Rowhammer remains one of the most stubborn and persistent physical hardware vulnerabilities in modern Dynamic Random-Access Memory (DRAM). By repeatedly activating ("hammering") specific memory rows,...">
     <link rel="canonical" href="https://moghimi.org/supporting_rowhammer_research_to_protect_dram_ecosystem.html">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate" type="application/rss+xml" title="Daniel Moghimi &#8212; Security Blog" href="https://moghimi.org/feed.xml">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://moghimi.org/supporting_rowhammer_research_to_protect_dram_ecosystem.html">
     <meta property="og:title" content="Daniel Moghimi &#8212; Supporting Rowhammer Research To Protect DRAM Ecosystem">
-    <meta property="og:description" content="Link to Supporting Rowhammer research to protect the DRAM ecosystem (Google Security Blog)">
+    <meta property="og:description" content="Rowhammer remains one of the most stubborn and persistent physical hardware vulnerabilities in modern Dynamic Random-Access Memory (DRAM). By repeatedly activating ("hammering") specific memory rows,...">
     <meta property="og:image" content="https://moghimi.org/assets/profile.png">
 
     <!-- Twitter -->
@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@flowyroll">
     <meta name="twitter:creator" content="@flowyroll">
     <meta name="twitter:title" content="Daniel Moghimi &#8212; Supporting Rowhammer Research To Protect DRAM Ecosystem">
-    <meta name="twitter:description" content="Link to Supporting Rowhammer research to protect the DRAM ecosystem (Google Security Blog)">
+    <meta name="twitter:description" content="Rowhammer remains one of the most stubborn and persistent physical hardware vulnerabilities in modern Dynamic Random-Access Memory (DRAM). By repeatedly activating ("hammering") specific memory rows,...">
     <meta name="twitter:image" content="https://moghimi.org/assets/profile.png">
 
     <link rel="stylesheet" href="css/style.css">
@@ -53,7 +53,17 @@
     </header>
     <main>
 <p><em>September 15, 2025</em></p>
-<p>Link to <a href="https://security.googleblog.com/2025/09/supporting-rowhammer-research-to.html">Supporting Rowhammer research to protect the DRAM ecosystem</a> (Google Security Blog)</p>    </main>
+<p><strong>Rowhammer</strong> remains one of the most stubborn and persistent physical hardware vulnerabilities in modern Dynamic Random-Access Memory (DRAM). By repeatedly activating ("hammering") specific memory rows, electrical charge leaks across silicon boundaries, inducing unintended bit flips in adjacent memory cells without requiring any software exploits.</p>
+<h3>Why Securing the DRAM Ecosystem Matters</h3>
+<ul>
+<li><strong>Persistent Threat to Isolation:</strong> Rowhammer bit flips can be weaponized by local processes or multi-tenant cloud workloads to corrupt page tables, achieve kernel privilege escalation, and break cryptographic signatures and sandbox boundaries.</li>
+<li><strong>Limitations of Existing Defenses:</strong> Memory manufacturers introduced hardware mitigations including Target Row Refresh (TRR) in DDR4 and on-die Error Correction Code (ECC) in DDR5. However, sophisticated multi-sided and synchronized hammering access patterns (such as <em>Half-Double</em>, <em>Blacksmith</em>, and <em>Phoenix</em>) have repeatedly proven that proprietary on-die mitigations can be circumvented.</li>
+<li><strong>Google's Research Initiatives:</strong> To address these systemic hardware vulnerabilities, Google actively supports academic research partnerships and the development of open security fuzzing and stress-testing platforms for DDR5 memory modules.</li>
+<li><strong>The Path to Resilient Memory:</strong> Mitigating Rowhammer long-term requires industry-wide transparency, standardized validation benchmarks, and memory controller architectures capable of guaranteed, deterministic row refresh without unbearable performance and energy overheads.</li>
+</ul>
+<hr />
+<p>📖 <strong>Read the complete article on the Google Security Blog:</strong><br />
+<a href="https://security.googleblog.com/2025/09/supporting-rowhammer-research-to.html">Supporting Rowhammer research to protect the DRAM ecosystem</a></p>    </main>
     <footer>
         <div class="footer-content">
             &copy; 2026 Daniel Moghimi
